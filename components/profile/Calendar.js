@@ -35,7 +35,7 @@ export default function CalendarComponent(props) {
         }}
         inputRef={ref}
       ></Calendar>
-      <Link href={`user/${router.query.userId}/subs`}>Subs</Link>
+      <Link href="/subs">Subs</Link>
     </div>
   );
 }
