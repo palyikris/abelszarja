@@ -1,10 +1,20 @@
 import Calendar from "react-calendar";
 import { useState, useRef } from "react";
-import { AddZero } from "../../lib/addZero";
 
 export default function CalendarComponent(props) {
   let calendarValue = new Date();
   let ref = useRef();
+
+  function AddZero(num) {
+    num = parseInt(num);
+    console.log(num);
+    if (num < 10) {
+      num = "0" + num.toString();
+      return num;
+    } else {
+      return num;
+    }
+  }
 
   return (
     <div>
