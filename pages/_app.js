@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import { useRouter } from "next/router";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 
-const noAuthRequired = ["/login", "/signup"];
+const noAuthRequired = ["/login", "/signup", "/"];
 
 function MyApp({ Component, pageProps }) {
   let router = useRouter();

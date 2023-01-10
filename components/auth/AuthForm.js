@@ -1,11 +1,13 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useAuth } from "../../context/AuthContext";
+import { useRouter } from "next/router";
 
 export default function AuthForm(props) {
   let [email, setEmail] = useState("");
   let [password, setPassword] = useState("");
   let [error, setError] = useState("");
+  let router = useRouter();
 
   let { user, login, signup } = useAuth();
   console.log(user);
@@ -16,10 +18,12 @@ export default function AuthForm(props) {
     if (props.isLogin) {
       try {
         await login(email, password);
+        router.push(`/user/${user.id}/profile`);
       } catch (error) {}
     } else {
       try {
-        signup(email, password);
+        await signup(email, password);
+        router.push(`/user/${user.id}/profile`);
       } catch (error) {}
     }
   }
