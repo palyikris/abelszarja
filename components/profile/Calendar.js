@@ -1,9 +1,12 @@
 import Calendar from "react-calendar";
 import { useState, useRef } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function CalendarComponent(props) {
   let calendarValue = new Date();
   let ref = useRef();
+  let router = useRouter();
 
   function AddZero(num) {
     num = parseInt(num);
@@ -32,6 +35,7 @@ export default function CalendarComponent(props) {
         }}
         inputRef={ref}
       ></Calendar>
+      <Link href={`user/${router.query.userId}/subs`}>Subs</Link>
     </div>
   );
 }
