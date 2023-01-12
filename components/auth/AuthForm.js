@@ -10,7 +10,9 @@ export default function AuthForm(props) {
   let router = useRouter();
 
   let { user, login, signup } = useAuth();
-  console.log(user);
+  if (user) {
+    router.push(`/user/${user.id}/profile`);
+  }
 
   async function handleSubmit(e) {
     setError("");
