@@ -1,11 +1,13 @@
-import DetailComponent from "../../../components/profile/Detail";
-import CalendarComponent from "../../../components/profile/Calendar";
+import CustomHead from "./../../../ui/CustomHead";
 
 export default function ProfilePage() {
   return (
     <div>
-      <DetailComponent></DetailComponent>
-      <CalendarComponent></CalendarComponent>
+      <CustomHead
+        title="Maxt Profile"
+        description="Maxt Profile Page for Maxt users."
+        keywords="maxt, profile"
+      ></CustomHead>
     </div>
   );
 }
