@@ -1,0 +1,82 @@
+@import "../uniform";
+
+.profileData {
+  @include centerDiv(column);
+  background-color: white;
+  padding: 5vmin 10vmin;
+  border-radius: 10px;
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 20vmin;
+  .datas {
+    @include centerDiv(row);
+    justify-content: space-around;
+    .dataWrapper {
+      @include centerDiv(row);
+      flex-wrap: wrap;
+      border-right: 1px solid rgba($backgroundColor, 0.5);
+      border-top: 1px solid rgba($backgroundColor, 0.5);
+      padding-right: 5vmin;
+      padding-top: 5vmin;
+      border-radius: 0 5px 0 0;
+      .data {
+        @include centerDiv(column);
+        align-items: flex-start;
+        width: auto;
+        margin: 2vmin 5vmin;
+        label {
+          color: $backgroundColor;
+        }
+        input {
+          padding: 3vmin 2vmin;
+          margin-top: 1vmin;
+          border: 1.2px solid $backgroundColor;
+          border-radius: 5px;
+          color: $backgroundColor;
+          width: 30vmin;
+          ::placeholder {
+            color: rgba($backgroundColor, 0.5);
+          }
+        }
+        select {
+          padding: 3vmin 2vmin;
+          margin-top: 1vmin;
+          border: 1.2px solid $backgroundColor;
+          border-radius: 5px;
+          color: rgba($backgroundColor, 0.5);
+          width: 30vmin;
+          option {
+            transition: all 0.5s;
+            &:hover {
+              background-color: rgba($backgroundColor, 0.5);
+              color: white;
+            }
+          }
+        }
+      }
+    }
+    .dataButton {
+      @include centerDiv(row);
+      width: auto;
+      padding-left: 10vmin;
+      button {
+        border-radius: 10px;
+        border: 1px solid white;
+        color: $backgroundColor;
+        background: none;
+        border: 2px solid;
+        font: inherit;
+        margin: 0.5em;
+        padding: 2vmin 8vmin;
+        background-color: white;
+        transition: 0.5s;
+
+        &:hover {
+          box-shadow: inset 20em 0 0 0 $backgroundColor;
+          color: white;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
