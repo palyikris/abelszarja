@@ -50,6 +50,8 @@ export default function SubsPageComponent(props) {
       userSchool === "Karinthy"
     ) {
       if (userClass != "") {
+        let userClassNumber = userClass.split(".")[0];
+        let userClassLetter = userClass.split(".")[1];
         if (isTodaySubs) {
           lines = getSubLines(todayPageData);
           lines = lines.filter((line) =>
@@ -60,12 +62,18 @@ export default function SubsPageComponent(props) {
           );
         } else {
           lines = getSubLines(tomorrowPageData);
-          lines = lines.filter((line) =>
-            line.class
-              .trim()
-              .toLowerCase()
-              .includes(userClass.trim().toLowerCase())
-          );
+          lines.map((line, i) => {
+            if (
+              line.class.split(".")[0] != userClassNumber ||
+              !line.class
+                .trim()
+                .toLowerCase()
+                .split(".")[1]
+                .includes(userClassLetter.trim().toLowerCase())
+            ) {
+              delete lines[i];
+            }
+          });
         }
       } else {
         if (isTodaySubs) {
@@ -89,14 +97,38 @@ export default function SubsPageComponent(props) {
         </div>
         <div className={styles.classWrapper}>
           <label htmlFor="">Your class</label>
-          <input
-            type="text"
-            placeholder="Enter your class"
+          <select
             onChange={(e) => {
               setUserClass(e.target.value);
             }}
             value={userClass}
-          />
+          >
+            <option value="">All classes</option>
+            <option value="9.Akny">9.Akny</option>
+            <option value="9.Bkny">9.Bkny</option>
+            <option value="9.Ckny">9.Ckny</option>
+            <option value="9.D">9.D</option>
+            <option value="9.Ekny">9.Ekny</option>
+            <option value="9.A">9.A</option>
+            <option value="9.B">9.B</option>
+            <option value="9.C">9.C</option>
+            <option value="10.D">10.D</option>
+            <option value="9.E">9.E</option>
+            <option value="10.A">10.A</option>
+            <option value="10.B">10.B</option>
+            <option value="10.C">10.C</option>
+            <option value="11.D">11.D</option>
+            <option value="10.E">10.E</option>
+            <option value="11.A">11.A</option>
+            <option value="11.B">11.B</option>
+            <option value="11.C">11.C</option>
+            <option value="12.D">12.D</option>
+            <option value="11.E">11.E</option>
+            <option value="12.A">12.A</option>
+            <option value="12.B">12.B</option>
+            <option value="12.C">12.C</option>
+            <option value="12.E">12.E</option>
+          </select>
         </div>
         {userSchool === "Kossuth" ? (
           <></>

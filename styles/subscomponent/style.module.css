@@ -149,7 +149,7 @@
   text-align: left;
   width: 100%;
 }
-.container .controls .classWrapper input {
+.container .controls .classWrapper select {
   padding: 3vmin 3vmin;
   width: 50vmin;
   margin-top: 1vmin;
