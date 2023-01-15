@@ -25,17 +25,28 @@ export default function ProfilePicPage() {
       try {
         console.log(file);
         getProfilePicName(router.query.userId).then((data) => {
-          let desertRef = ref(storage, `${router.query.userId}/${data}`);
-          deleteObject(desertRef).then(() => {
+          if (data) {
+            let desertRef = ref(storage, `${router.query.userId}/${data}`);
+            deleteObject(desertRef).then(() => {
+              let response = uploadProfilePic(router.query.userId, file).then(
+                () => {
+                  getProfilePicUrl().then((data) => {
+                    setImgUrl(data);
+                    setIsLoading(false);
+                  });
+                }
+              );
+            });
+          } else {
             let response = uploadProfilePic(router.query.userId, file).then(
               () => {
                 getProfilePicUrl().then((data) => {
                   setImgUrl(data);
-                  setIsLoading(false)
+                  setIsLoading(false);
                 });
               }
             );
-          });
+          }
         });
       } catch (error) {}
     }

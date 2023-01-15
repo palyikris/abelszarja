@@ -1,13 +1,27 @@
 /* eslint-disable react/no-unescaped-entities */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSubLines } from "./../../lib/subs/GetSubLines";
 import styles from "../../styles/subscomponent/style.module.css";
+import { useRouter } from "next/router";
+import { getUserData } from "../../lib/userData/firebase";
+import LoaderPage from "./../../ui/Loader";
 
 export default function SubsPageComponent(props) {
   let { todayPageData, tomorrowPageData, error } = props.props;
   let lines = [];
   let [isTodaySubs, setIsTodaySubs] = useState(true);
   let [userClass, setUserClass] = useState("");
+  let router = useRouter();
+  let [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    getUserData(router.query.userId).then((data) => {
+      if (data.userClass && data.userClass != "") {
+        setUserClass(data.userClass);
+      }
+      setIsLoading(false);
+    });
+  });
 
   if (error) {
     return (
@@ -17,32 +31,49 @@ export default function SubsPageComponent(props) {
       </div>
     );
   } else {
-    if (userClass != "") {
-      if (isTodaySubs) {
-        lines = getSubLines(todayPageData);
-        lines = lines.filter((line) =>
-          line.class
-            .trim()
-            .toLowerCase()
-            .includes(userClass.trim().toLowerCase())
-        );
+    if (isLoading) {
+      return (
+        <div className={styles.tableWrapperWrapper}>
+          <LoaderPage></LoaderPage>
+        </div>
+      );
+    }
+
+    if (
+      userClass === "" ||
+      userClass === undefined ||
+      userClass === "Karinthy"
+    ) {
+      if (userClass != "") {
+        if (isTodaySubs) {
+          lines = getSubLines(todayPageData);
+          lines = lines.filter((line) =>
+            line.class
+              .trim()
+              .toLowerCase()
+              .includes(userClass.trim().toLowerCase())
+          );
+        } else {
+          lines = getSubLines(tomorrowPageData);
+          lines = lines.filter((line) =>
+            line.class
+              .trim()
+              .toLowerCase()
+              .includes(userClass.trim().toLowerCase())
+          );
+        }
       } else {
-        lines = getSubLines(tomorrowPageData);
-        lines = lines.filter((line) =>
-          line.class
-            .trim()
-            .toLowerCase()
-            .includes(userClass.trim().toLowerCase())
-        );
+        if (isTodaySubs) {
+          lines = getSubLines(todayPageData);
+        } else {
+          lines = getSubLines(tomorrowPageData);
+        }
       }
     } else {
-      if (isTodaySubs) {
-        lines = getSubLines(todayPageData);
-      } else {
-        lines = getSubLines(tomorrowPageData);
-      }
+      // get kossuth code
     }
   }
+
   return (
     <div className={styles.container}>
       <div className={styles.controls}>
@@ -57,6 +88,7 @@ export default function SubsPageComponent(props) {
             onChange={(e) => {
               setUserClass(e.target.value);
             }}
+            value={userClass}
           />
         </div>
         <div className={styles.dayChangeButtonWrapper}>
@@ -81,8 +113,13 @@ export default function SubsPageComponent(props) {
       </div>
       {lines.length === 0 ? (
         <>
-          <div className={styles.tableWrapperWrapper}>
+          <div className={styles.text}>
             <h1>There are no substitutions</h1>
+            <h4>
+              If there are multiple classes given for a substitution, it will
+              not show up if you enter only one of the classes of that
+              substitution.
+            </h4>
           </div>
         </>
       ) : (

@@ -7,9 +7,23 @@ import Topnav from "../../../ui/topnav";
 import SubsPageComponent from "../../../components/subs/subspage";
 import { useRouter } from "next/router";
 import AnimatedBackgroundPage from "../../../ui/animatedBackground";
+import { useState } from "react";
+import { useEffect } from "react";
+import { useAuth } from "./../../../context/AuthContext";
+import LoaderPage from "./../../../ui/Loader";
 
 export default function SubsPage(props) {
   let router = useRouter();
+  let [isLoading, setIsLoading] = useState(true);
+  let { logout, user } = useAuth();
+
+  useEffect(() => {
+    if (user.id != router.query.userId) {
+      logout();
+    } else {
+      setIsLoading(false);
+    }
+  });
 
   return (
     <div className={styles.container}>
@@ -19,8 +33,16 @@ export default function SubsPage(props) {
         keywords="maxt, substitutions"
       ></CustomHead>
       <Topnav userId={router.query.userId}></Topnav>
-      <SubsPageComponent props={props}></SubsPageComponent>
-      <AnimatedBackgroundPage></AnimatedBackgroundPage>
+      {isLoading ? (
+        <>
+          <LoaderPage></LoaderPage>
+        </>
+      ) : (
+        <>
+          <SubsPageComponent props={props}></SubsPageComponent>
+          <AnimatedBackgroundPage></AnimatedBackgroundPage>
+        </>
+      )}
     </div>
   );
 }

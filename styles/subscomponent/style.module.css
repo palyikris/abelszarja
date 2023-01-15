@@ -8,6 +8,24 @@
   flex-direction: row;
   align-items: flex-start;
 }
+.container .text {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+  color: white;
+}
+.container .text h1 {
+  font-size: 60px;
+  text-align: center;
+  width: 80%;
+}
+.container .text h4 {
+  margin-top: 5vmin;
+  width: 80%;
+}
 .container .tableWrapper {
   width: 100%;
   display: flex;
@@ -139,6 +157,10 @@
   width: 100%;
   border: none;
   color: #4e30f5;
+}
+.container .controls .classWrapper p {
+  color: white;
+  margin-top: 3vmin;
 }
 .container .controls .dayChangeButtonWrapper {
   width: 100%;

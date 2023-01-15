@@ -15,9 +15,11 @@ export default function ProfileDataPage() {
   useEffect(() => {
     loadUserData()
       .then((data) => {
-        setUserClass(data.userClass);
-        setNickname(data.nickname);
-        setSchool(data.school);
+        if (data) {
+          setUserClass(data.userClass);
+          setNickname(data.nickname);
+          setSchool(data.school);
+        }
       })
       .then(() => {
         setIsLoading(false);

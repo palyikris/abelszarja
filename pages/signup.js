@@ -1,9 +1,10 @@
 import AuthForm from "../components/auth/AuthForm";
 import CustomHead from "./../ui/CustomHead";
+import styles from "../styles/signup/style.module.css";
 
 export default function LoginPage() {
   return (
-    <div>
+    <div className={styles.container}>
       <CustomHead
         title="Maxt Signup"
         description="Maxt Signup Page for Maxt users."

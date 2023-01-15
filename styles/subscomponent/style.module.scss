@@ -5,6 +5,20 @@
   padding: 6vmin 3vmin;
   @include centerDiv(row);
   align-items: flex-start;
+  .text {
+    @include centerDiv(column);
+    height: 100%;
+    color: white;
+    h1 {
+      font-size: 60px;
+      text-align: center;
+      width: 80%;
+    }
+    h4 {
+      margin-top: 5vmin;
+      width: 80%;
+    }
+  }
   .tableWrapper {
     @include centerDiv(column);
     justify-content: flex-start;
@@ -96,6 +110,10 @@
         width: 100%;
         border: none;
         color: $backgroundColor;
+      }
+      p {
+        color: white;
+        margin-top: 3vmin;
       }
     }
     .dayChangeButtonWrapper {
