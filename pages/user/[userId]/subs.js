@@ -51,10 +51,16 @@ export async function getServerSideProps() {
   try {
     const { data } = await axios.get("https://apps.karinthy.hu/helyettesites/");
     const $ = cheerio.load(data);
+
+    const kossuthData = await (
+      await axios.get("http://fenyujsag.klgbp.hu")
+    ).data;
+    const kossuth = cheerio.load(kossuthData);
     return {
       props: {
         todayPageData: $(".live.today tbody").text(),
-        tomorrowPageData: $(".live.tomorrow tbody").text()
+        tomorrowPageData: $(".live.tomorrow tbody").text(),
+        kossuthData: kossuth(".tartalom:nth-child(2)").text()
       }
     };
   } catch (error) {

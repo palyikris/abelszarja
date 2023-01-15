@@ -132,10 +132,10 @@
         margin: 0.5em;
         padding: 1em 2em;
         background-color: white;
-        transition: 0.5s;
+        transition: 1s;
 
         &:hover {
-          box-shadow: inset 20em 0 0 0 $backgroundColor;
+          box-shadow: inset 100em 0 0 0 $backgroundColor;
           color: white;
           cursor: pointer;
         }

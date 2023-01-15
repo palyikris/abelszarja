@@ -56,4 +56,14 @@
 }
 .intro .svgWrapper:hover {
   box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
+}
+
+@media only screen and (max-width: 600px) {
+  .intro {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.module.css.map */

@@ -83,7 +83,7 @@
   padding: 2vmin 6vmin;
 }
 .container form .dataButton button:hover {
-  box-shadow: inset 20em 0 0 0 #4e30f5;
+  box-shadow: inset 100% 0 0 0 #4e30f5;
   color: white;
   cursor: pointer;
 }

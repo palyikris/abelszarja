@@ -5,6 +5,8 @@ import styles from "../../styles/subscomponent/style.module.css";
 import { useRouter } from "next/router";
 import { getUserData } from "../../lib/userData/firebase";
 import LoaderPage from "./../../ui/Loader";
+import { axios } from "axios";
+import { cheerio } from "cheerio";
 
 export default function SubsPageComponent(props) {
   let { todayPageData, tomorrowPageData, error } = props.props;
@@ -13,15 +15,19 @@ export default function SubsPageComponent(props) {
   let [userClass, setUserClass] = useState("");
   let router = useRouter();
   let [isLoading, setIsLoading] = useState(true);
+  let [userSchool, setUserSchool] = useState("");
 
   useEffect(() => {
     getUserData(router.query.userId).then((data) => {
       if (data.userClass && data.userClass != "") {
         setUserClass(data.userClass);
       }
+      if (data.school) {
+        setUserSchool(data.school);
+      }
       setIsLoading(false);
     });
-  });
+  }, []);
 
   if (error) {
     return (
@@ -38,11 +44,10 @@ export default function SubsPageComponent(props) {
         </div>
       );
     }
-
     if (
-      userClass === "" ||
-      userClass === undefined ||
-      userClass === "Karinthy"
+      userSchool === "" ||
+      userSchool === undefined ||
+      userSchool === "Karinthy"
     ) {
       if (userClass != "") {
         if (isTodaySubs) {
@@ -70,7 +75,9 @@ export default function SubsPageComponent(props) {
         }
       }
     } else {
-      // get kossuth code
+      lines = [];
+      let { kossuthData } = props.props;
+      console.log(kossuthData);
     }
   }
 
@@ -91,25 +98,29 @@ export default function SubsPageComponent(props) {
             value={userClass}
           />
         </div>
-        <div className={styles.dayChangeButtonWrapper}>
-          {isTodaySubs ? (
-            <button
-              onClick={() => {
-                setIsTodaySubs(false);
-              }}
-            >
-              See tomorrow's substitutes
-            </button>
-          ) : (
-            <button
-              onClick={() => {
-                setIsTodaySubs(true);
-              }}
-            >
-              See today's substitutes
-            </button>
-          )}
-        </div>
+        {userSchool === "Kossuth" ? (
+          <></>
+        ) : (
+          <div className={styles.dayChangeButtonWrapper}>
+            {isTodaySubs ? (
+              <button
+                onClick={() => {
+                  setIsTodaySubs(false);
+                }}
+              >
+                See tomorrow's substitutes
+              </button>
+            ) : (
+              <button
+                onClick={() => {
+                  setIsTodaySubs(true);
+                }}
+              >
+                See today's substitutes
+              </button>
+            )}
+          </div>
+        )}
       </div>
       {lines.length === 0 ? (
         <>
