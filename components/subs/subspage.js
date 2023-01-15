@@ -103,7 +103,7 @@ export default function SubsPageComponent(props) {
             }}
             value={userClass}
           >
-            <option value="">All classes</option>
+            <option value=""></option>
             <option value="9.Akny">9.Akny</option>
             <option value="9.Bkny">9.Bkny</option>
             <option value="9.Ckny">9.Ckny</option>
