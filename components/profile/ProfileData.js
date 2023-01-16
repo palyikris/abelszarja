@@ -75,14 +75,41 @@ export default function ProfileDataPage() {
             <div className={styles.dataWrapper}>
               <div className={styles.data}>
                 <label htmlFor="">Class</label>
-                <input
+                <select
                   type="text"
                   placeholder="Enter your class..."
                   value={userClass}
                   onChange={(e) => {
+                    console.log(e.target.value);
                     setUserClass(e.target.value);
                   }}
-                />
+                >
+                  <option value="">Choose class</option>
+                  <option value="9.AK">9.Akny</option>
+                  <option value="9.BK">9.Bkny</option>
+                  <option value="9.CK">9.Ckny</option>
+                  <option value="9.D">9.D</option>
+                  <option value="9.EK">9.Ekny</option>
+                  <option value="9.A">9.A</option>
+                  <option value="9.B">9.B</option>
+                  <option value="9.C">9.C</option>
+                  <option value="10.D">10.D</option>
+                  <option value="9.E">9.E</option>
+                  <option value="10.A">10.A</option>
+                  <option value="10.B">10.B</option>
+                  <option value="10.C">10.C</option>
+                  <option value="11.D">11.D</option>
+                  <option value="10.E">10.E</option>
+                  <option value="11.A">11.A</option>
+                  <option value="11.B">11.B</option>
+                  <option value="11.C">11.C</option>
+                  <option value="12.D">12.D</option>
+                  <option value="11.E">11.E</option>
+                  <option value="12.A">12.A</option>
+                  <option value="12.B">12.B</option>
+                  <option value="12.C">12.C</option>
+                  <option value="12.E">12.E</option>
+                </select>
               </div>
               <div className={styles.data}>
                 <label htmlFor="">Nickname</label>

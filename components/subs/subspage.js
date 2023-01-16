@@ -91,10 +91,9 @@ export default function SubsPageComponent(props) {
     } else {
       lines = [];
       let { kossuthData } = props.props;
-      console.log(kossuthData);
     }
   }
-
+  console.log(userClass);
   return (
     <div className={styles.container}>
       <div className={styles.controls}>
@@ -107,14 +106,14 @@ export default function SubsPageComponent(props) {
             onChange={(e) => {
               setUserClass(e.target.value);
             }}
-            value={userClass}
+            defaultValue={userClass.toUpperCase()}
           >
-            <option value=""></option>
-            <option value="9.Akny">9.Akny</option>
-            <option value="9.Bkny">9.Bkny</option>
-            <option value="9.Ckny">9.Ckny</option>
+            <option value="">All classes</option>
+            <option value="9.AK">9.Akny</option>
+            <option value="9.BK">9.Bkny</option>
+            <option value="9.CK">9.Ckny</option>
             <option value="9.D">9.D</option>
-            <option value="9.Ekny">9.Ekny</option>
+            <option value="9.EK">9.Ekny</option>
             <option value="9.A">9.A</option>
             <option value="9.B">9.B</option>
             <option value="9.C">9.C</option>
