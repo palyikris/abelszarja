@@ -61,7 +61,9 @@ export default function SubsPageComponent(props) {
                 .trim()
                 .toLowerCase()
                 .split(".")[1]
-                .includes(userClassLetter.trim().toLowerCase())
+                .includes(userClassLetter.trim().toLowerCase()) ||
+              (userClassLetter === "B" &&
+                line.class.trim().toUpperCase().split(".")[1] === "IB")
             ) {
               delete lines[i];
             }
