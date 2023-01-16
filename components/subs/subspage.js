@@ -129,10 +129,12 @@ export default function SubsPageComponent(props) {
             <option value="11.C">11.C</option>
             <option value="12.D">12.D</option>
             <option value="11.E">11.E</option>
+            <option value="11.IB">11.IB</option>
             <option value="12.A">12.A</option>
             <option value="12.B">12.B</option>
             <option value="12.C">12.C</option>
             <option value="12.E">12.E</option>
+            <option value="12.IB">12.IB</option>
           </select>
         </div>
         {userSchool === "Kossuth" ? (
