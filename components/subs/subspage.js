@@ -54,12 +54,18 @@ export default function SubsPageComponent(props) {
         let userClassLetter = userClass.split(".")[1];
         if (isTodaySubs) {
           lines = getSubLines(todayPageData);
-          lines = lines.filter((line) =>
-            line.class
-              .trim()
-              .toLowerCase()
-              .includes(userClass.trim().toLowerCase())
-          );
+          lines.map((line, i) => {
+            if (
+              line.class.split(".")[0] != userClassNumber ||
+              !line.class
+                .trim()
+                .toLowerCase()
+                .split(".")[1]
+                .includes(userClassLetter.trim().toLowerCase())
+            ) {
+              delete lines[i];
+            }
+          });
         } else {
           lines = getSubLines(tomorrowPageData);
           lines.map((line, i) => {
