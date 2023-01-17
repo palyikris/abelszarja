@@ -50,7 +50,7 @@ export default function AuthForm(props) {
     <>
       <div className={styles.container}>
         <form onSubmit={handleSubmit}>
-          {props.isLogin ? <h3>Jelentkezz be</h3> : <h3>Regisztrálj</h3>}
+          {props.isLogin ? <h3>Login</h3> : <h3>Új fiók</h3>}
           <p>{error}</p>
           <div className={styles.datas}>
             <div className={styles.data}>
