@@ -100,11 +100,11 @@ export default function SubsPageComponent(props) {
   if (userSchool === "Kossuth") {
     return (
       <div className={styles.container}>
-        <div className={styles.controls}>
+        {/* <div className={styles.controls}>
           <div className={styles.titleWrapper}>
             <h1>Helyettesítések.</h1>
           </div>
-          {/* <div className={styles.classWrapper}>
+          <div className={styles.classWrapper}>
             <label htmlFor="">Osztályok</label>
             <select
               onChange={(e) => {
@@ -140,7 +140,7 @@ export default function SubsPageComponent(props) {
               <option value="12.E">12.E</option>
               <option value="12.IB">12.IB</option>
             </select>
-          </div> */}
+          </div>
           {userSchool === "Kossuth" ? (
             <></>
           ) : (
@@ -164,7 +164,7 @@ export default function SubsPageComponent(props) {
               )}
             </div>
           )}
-        </div>
+        </div> */}
         {lines.length === 0 ? (
           <>
             <div className={styles.text}>
