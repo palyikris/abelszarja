@@ -1,0 +1,26 @@
+@import "../uniform";
+
+.container {
+  @include centerDiv(row);
+  background-color: white;
+  height: 90%;
+  margin: 0 10vmin;
+  border-radius: 5px;
+  padding: 3vmin;
+  .time,
+  .calendar {
+    @include centerDiv(column);
+    div {
+      font-size: 10px;
+      border-bottom: 1px solid rgba($backgroundColor, 0.2);
+    }
+  }
+  .time {
+    width: auto;
+  }
+  .calendar {
+    div {
+      width: 100%;
+    }
+  }
+}

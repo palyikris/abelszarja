@@ -7,6 +7,7 @@ import { getUserData } from "../../lib/userData/firebase";
 import LoaderPage from "./../../ui/Loader";
 import { axios } from "axios";
 import { cheerio } from "cheerio";
+import { GetKossuthSubLines } from "./../../lib/subs/GetKossuthSubLines";
 
 export default function SubsPageComponent(props) {
   let { todayPageData, tomorrowPageData, error } = props.props;
@@ -93,24 +94,179 @@ export default function SubsPageComponent(props) {
     } else {
       lines = [];
       let { kossuthData } = props.props;
+      lines = GetKossuthSubLines(kossuthData);
     }
   }
-  console.log(userClass);
+  if (userSchool === "Kossuth") {
+    return (
+      <div className={styles.container}>
+        <div className={styles.controls}>
+          <div className={styles.titleWrapper}>
+            <h1>Helyettesítések.</h1>
+          </div>
+          {/* <div className={styles.classWrapper}>
+            <label htmlFor="">Osztályok</label>
+            <select
+              onChange={(e) => {
+                setUserClass(e.target.value);
+              }}
+              defaultValue={userClass.toUpperCase()}
+            >
+              <option value="">Minden osztály</option>
+              <option value="9.AK">9.Akny</option>
+              <option value="9.BK">9.Bkny</option>
+              <option value="9.CK">9.Ckny</option>
+              <option value="9.D">9.D</option>
+              <option value="9.EK">9.Ekny</option>
+              <option value="9.A">9.A</option>
+              <option value="9.B">9.B</option>
+              <option value="9.C">9.C</option>
+              <option value="10.D">10.D</option>
+              <option value="9.E">9.E</option>
+              <option value="10.A">10.A</option>
+              <option value="10.B">10.B</option>
+              <option value="10.C">10.C</option>
+              <option value="11.D">11.D</option>
+              <option value="10.E">10.E</option>
+              <option value="11.A">11.A</option>
+              <option value="11.B">11.B</option>
+              <option value="11.C">11.C</option>
+              <option value="12.D">12.D</option>
+              <option value="11.E">11.E</option>
+              <option value="11.IB">11.IB</option>
+              <option value="12.A">12.A</option>
+              <option value="12.B">12.B</option>
+              <option value="12.C">12.C</option>
+              <option value="12.E">12.E</option>
+              <option value="12.IB">12.IB</option>
+            </select>
+          </div> */}
+          {userSchool === "Kossuth" ? (
+            <></>
+          ) : (
+            <div className={styles.dayChangeButtonWrapper}>
+              {isTodaySubs ? (
+                <button
+                  onClick={() => {
+                    setIsTodaySubs(false);
+                  }}
+                >
+                  Holnapi helyettesítések
+                </button>
+              ) : (
+                <button
+                  onClick={() => {
+                    setIsTodaySubs(true);
+                  }}
+                >
+                  Mai helyettesítések
+                </button>
+              )}
+            </div>
+          )}
+        </div>
+        {lines.length === 0 ? (
+          <>
+            <div className={styles.text}>
+              <h1>Nincsenek helyettesítéseks</h1>
+            </div>
+          </>
+        ) : (
+          <div className={styles.tableWrapperWrapper}>
+            <div className={styles.tableWrapper}>
+              <div className={styles.table}>
+                <div className={styles.thead}>
+                  <div className={styles.tr}>
+                    <div className={styles.td}>
+                      <div>Osztály</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Tárgy</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Dátum</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Nap</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Óra</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Terem</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Aki nincs</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Aki lesz</div>
+                    </div>
+                    <div className={styles.td}>
+                      <div>Megjegyzés</div>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.sep}></div>
+                <div className={styles.tbody}>
+                  {lines.map((line, i) => {
+                    return (
+                      <div key={i}>
+                        <div style={styles.tr}>
+                          <div className={styles.td}>
+                            <div>{line.class}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.subject}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.date}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.day}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.classNumber}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.room}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.substitutedTeacher}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.substituteTeacher}</div>
+                          </div>
+                          <div className={styles.td}>
+                            <div> {line.note}</div>
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.controls}>
         <div className={styles.titleWrapper}>
-          <h1>Substitutions.</h1>
+          <h1>Helyettesítések.</h1>
         </div>
         <div className={styles.classWrapper}>
-          <label htmlFor="">Your class</label>
+          <label htmlFor="">Osztályok</label>
           <select
             onChange={(e) => {
               setUserClass(e.target.value);
             }}
             defaultValue={userClass.toUpperCase()}
           >
-            <option value="">All classes</option>
+            <option value="">Minden osztály</option>
             <option value="9.AK">9.Akny</option>
             <option value="9.BK">9.Bkny</option>
             <option value="9.CK">9.Ckny</option>
@@ -149,7 +305,7 @@ export default function SubsPageComponent(props) {
                   setIsTodaySubs(false);
                 }}
               >
-                See tomorrow's substitutes
+                Holnapi helyettesítések
               </button>
             ) : (
               <button
@@ -157,7 +313,7 @@ export default function SubsPageComponent(props) {
                   setIsTodaySubs(true);
                 }}
               >
-                See today's substitutes
+                Mai helyettesítések
               </button>
             )}
           </div>
@@ -166,12 +322,7 @@ export default function SubsPageComponent(props) {
       {lines.length === 0 ? (
         <>
           <div className={styles.text}>
-            <h1>There are no substitutions</h1>
-            <h4>
-              If there are multiple classes given for a substitution, it will
-              not show up if you enter only one of the classes of that
-              substitution.
-            </h4>
+            <h1>Nincsenek helyettesítéseks</h1>
           </div>
         </>
       ) : (
@@ -181,25 +332,25 @@ export default function SubsPageComponent(props) {
               <div className={styles.thead}>
                 <div className={styles.tr}>
                   <div className={styles.td}>
-                    <div>Class</div>
+                    <div>Osztály</div>
                   </div>
                   <div className={styles.td}>
-                    <div>Subject</div>
+                    <div>Tárgy</div>
                   </div>
                   <div className={styles.td}>
-                    <div>Class Number</div>
+                    <div>Óra</div>
                   </div>
                   <div className={styles.td}>
-                    <div>Room Number</div>
+                    <div>Terem</div>
                   </div>
                   <div className={styles.td}>
-                    <div>Subsituted Teacher</div>
+                    <div>Aki nincs</div>
                   </div>
                   <div className={styles.td}>
-                    <div>Substitute Teacher</div>
+                    <div>Aki lesz</div>
                   </div>
                   <div className={styles.td}>
-                    <div>Note</div>
+                    <div>Megjegyzés</div>
                   </div>
                 </div>
               </div>

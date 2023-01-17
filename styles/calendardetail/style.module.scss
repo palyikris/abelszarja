@@ -1,0 +1,15 @@
+@import "../uniform";
+
+.container {
+  @include centerDiv(column);
+  width: 40%;
+  height: 80%;
+  background-color: white;
+  border-radius: 0 5px 5px 0;
+  justify-content: flex-start;
+  padding: 5vmin 3vmin 10vmin 3vmin;
+  h1 {
+    font-size: 50px;
+    color: $backgroundColor;
+  }
+}

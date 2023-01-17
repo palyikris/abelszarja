@@ -3,6 +3,7 @@ import Topnav from "./../../../ui/topnav";
 import { useRouter } from "next/router";
 import CalendarComponent from "../../../components/calendar/CalendarComponent";
 import styles from "../../../styles/calendar/style.module.css";
+import AnimatedBackgroundPage from "./../../../ui/animatedBackground";
 
 export default function CalendarPage() {
   let router = useRouter();
@@ -16,7 +17,7 @@ export default function CalendarPage() {
       ></CustomHead>
       <Topnav userId={router.query.userId}></Topnav>
       <CalendarComponent></CalendarComponent>
-      <div className={styles.background}></div>
+      <AnimatedBackgroundPage></AnimatedBackgroundPage>
     </div>
   );
 }

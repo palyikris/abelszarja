@@ -7,8 +7,8 @@ export default function IntroPage() {
         <div className={styles.text}>
           <h1>Hello.</h1>
           <h4>
-            This is your Maxt profile page. Adjust your settings here to
-            maximize your Maxt experience!
+            Ez itt a Maxt pofilod oldala. Ha lejjebb görgetsz, beállíthatsz pár
+            dolgot, ami segít kimaxolni a Maxt élményt
           </h4>
         </div>
         <div className={styles.svgWrapper}>

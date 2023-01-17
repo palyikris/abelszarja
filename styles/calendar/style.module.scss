@@ -1,11 +1,9 @@
 @import "../uniform";
 
 .container {
-  @include centerDiv(row);
+  @include centerDiv(column);
   height: 100vh;
   position: absolute;
   background-color: transparent;
-  .background {
-    @include animatedBackground();
-  }
+  justify-content: flex-start;
 }

@@ -20,7 +20,7 @@ export default function Home() {
         description="Maxt Landing Page."
         keywords="maxt, index, landingpage"
       ></CustomHead>
-      <h2>Main page xd</h2>
+      <h2>Főoldal xd</h2>
       <Link href="/login">Login</Link>
     </div>
   );

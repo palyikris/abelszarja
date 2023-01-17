@@ -74,17 +74,15 @@ export default function ProfileDataPage() {
           ) : (
             <div className={styles.dataWrapper}>
               <div className={styles.data}>
-                <label htmlFor="">Class</label>
+                <label htmlFor="">Osztály</label>
                 <select
                   type="text"
-                  placeholder="Enter your class..."
                   value={userClass}
                   onChange={(e) => {
-                    console.log(e.target.value);
                     setUserClass(e.target.value);
                   }}
                 >
-                  <option value="">Choose class</option>
+                  <option value="">Válassz osztályt</option>
                   <option value="9.AK">9.Akny</option>
                   <option value="9.BK">9.Bkny</option>
                   <option value="9.CK">9.Ckny</option>
@@ -114,10 +112,10 @@ export default function ProfileDataPage() {
                 </select>
               </div>
               <div className={styles.data}>
-                <label htmlFor="">Nickname</label>
+                <label htmlFor="">Felhasználónév</label>
                 <input
                   type="text"
-                  placeholder="Enter your nickname..."
+                  placeholder="Írj be egy felhasználónevet..."
                   value={nickname}
                   onChange={(e) => {
                     setNickname(e.target.value);
@@ -125,7 +123,7 @@ export default function ProfileDataPage() {
                 />
               </div>
               <div className={styles.data}>
-                <label htmlFor="">School</label>
+                <label htmlFor="">Iskola</label>
                 <select
                   name=""
                   id=""

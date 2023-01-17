@@ -50,29 +50,29 @@ export default function AuthForm(props) {
     <>
       <div className={styles.container}>
         <form onSubmit={handleSubmit}>
-          {props.isLogin ? <h3>Login</h3> : <h3>Sign up</h3>}
+          {props.isLogin ? <h3>Jelentkezz be</h3> : <h3>Regisztrálj</h3>}
           <p>{error}</p>
           <div className={styles.datas}>
             <div className={styles.data}>
-              <label htmlFor="">Username</label>
+              <label htmlFor="">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => {
                   setEmail(e.target.value);
                 }}
-                placeholder="Enter your email..."
+                placeholder="Írd be az emailod..."
               />
             </div>
             <div className={styles.data}>
-              <label htmlFor="">Password</label>
+              <label htmlFor="">Jelszó</label>
               <input
                 type="password"
                 value={password}
                 onChange={(e) => {
                   setPassword(e.target.value);
                 }}
-                placeholder="Enter your password..."
+                placeholder="Írd be a jelszavad..."
               />
             </div>
           </div>
@@ -80,12 +80,12 @@ export default function AuthForm(props) {
             {props.isLogin ? (
               <>
                 <button type="submit">Login</button>
-                <Link href="/signup">Need an account? Sign up!</Link>
+                <Link href="/signup">Kéne egy fiók? Regisztrálj!!</Link>
               </>
             ) : (
               <>
-                <button type="submit">Sign up</button>
-                <Link href="/login">Have an account? Log in!</Link>
+                <button type="submit">Regisztráció</button>
+                <Link href="/login">Van fiókod? Jelentkezz be!</Link>
               </>
             )}
           </div>

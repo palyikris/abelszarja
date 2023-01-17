@@ -16,6 +16,7 @@ export default function SubsPage(props) {
   let router = useRouter();
   let [isLoading, setIsLoading] = useState(true);
   let { logout, user } = useAuth();
+  console.log(props.data);
 
   useEffect(() => {
     if (user.id != router.query.userId) {
@@ -39,7 +40,6 @@ export default function SubsPage(props) {
         </>
       ) : (
         <>
-          <SubsPageComponent props={props}></SubsPageComponent>
           <AnimatedBackgroundPage></AnimatedBackgroundPage>
         </>
       )}
@@ -49,26 +49,20 @@ export default function SubsPage(props) {
 
 export async function getServerSideProps() {
   try {
-    const { data } = await axios.get("https://apps.karinthy.hu/helyettesites/");
+    const { data } = await axios.get(
+      "https://kisnaplo.karinthy.hu/app/interface.php?view=v_roomplan&day=2023-01-17&week=2023W03&KSNPLSID=q6rah6jta8g82jbocqc71se6el"
+    );
     const $ = cheerio.load(data);
-
-    const kossuthData = await (
-      await axios.get("http://fenyujsag.klgbp.hu")
-    ).data;
-    const kossuth = cheerio.load(kossuthData);
 
     return {
       props: {
-        todayPageData: $(".live.today tbody").text(),
-        tomorrowPageData: $(".live.tomorrow tbody").text(),
-        kossuthData: kossuth(".tartalom:not(:last-child)").text()
+        data: $("div div .drazse_container").text()
       }
     };
   } catch (error) {
     return {
       props: {
-        todayPageData: [],
-        tomorrowPageData: [],
+        data: [],
         error: error.message
       }
     };

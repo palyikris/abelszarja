@@ -3,9 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
   height: 100vh;
-  position: absolute;
-  background-color: transparent;
-  justify-content: flex-start;
+  justify-content: space-around;
 }/*# sourceMappingURL=style.module.css.map */

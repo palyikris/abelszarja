@@ -72,7 +72,7 @@ export default function ProfilePicPage() {
   return (
     <>
       <div className={styles.titleWrapper}>
-        <h1>Your data.</h1>
+        <h1>Az Adataid.</h1>
         {isLoading ? (
           <>
             <LoaderPage></LoaderPage>
