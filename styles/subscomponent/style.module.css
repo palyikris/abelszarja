@@ -201,4 +201,73 @@
 }
 .tableWrapperWrapper h1 {
   color: white;
+}
+
+@media only screen and (max-width: 950px) {
+  .container {
+    height: auto;
+    flex-wrap: wrap;
+    max-height: 75vh;
+    align-items: flex-start;
+  }
+  .container .tableWrapperWrapper {
+    height: auto;
+  }
+  .container .controls .dayChangeButtonWrapper {
+    margin: 5vmin 0;
+  }
+}
+@media only screen and (max-width: 550px) {
+  .td div {
+    font-size: 11px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 490px) {
+  .container .controls .titleWrapper h1 {
+    font-size: 50px;
+  }
+  .container .controls .dayChangeButtonWrapper button {
+    width: 80%;
+    font-size: 14px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .container .controls .titleWrapper h1 {
+    font-size: 40px;
+  }
+  .container .controls .dayChangeButtonWrapper button {
+    width: 90%;
+    font-size: 12px;
+  }
+  .container .tableWrapperWrapper .tableWrapper .table .tbody div .td div {
+    font-size: 10px;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .container .tableWrapperWrapper .tableWrapper .table .tbody div {
+    padding: 1vmin 0;
+    height: auto;
+    border: none;
+    border-bottom: 1px solid #4e30f5;
+  }
+  .container .tableWrapperWrapper .tableWrapper .table .tbody div div {
+    border: none;
+  }
+  .container .tableWrapperWrapper .tableWrapper .table .tbody div div .td {
+    border: none;
+  }
+  .container .tableWrapperWrapper .tableWrapper .table .tbody div div .td div {
+    border: none;
+    font-size: 9px;
+    text-align: center;
+    padding: 0.5vmin;
+  }
+  .container .tableWrapperWrapper .tableWrapper .table .thead .td div {
+    font-size: 10px;
+  }
+  .container .controls .titleWrapper h1 {
+    font-size: 30px;
+  }
 }/*# sourceMappingURL=style.module.css.map */

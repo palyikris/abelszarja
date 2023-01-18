@@ -30,3 +30,32 @@
     }
   }
 }
+
+@media only screen and (max-width: 770px) {
+  .titleWrapper {
+    h1 {
+      font-size: 70px;
+    }
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .titleWrapper {
+    @include centerDiv(column);
+    h1 {
+      text-align: center;
+      padding: 5vmin 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .titleWrapper {
+    h1 {
+      font-size: 50px;
+    }
+    .pic {
+      width: 70%;
+    }
+  }
+}

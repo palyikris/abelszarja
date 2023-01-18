@@ -57,4 +57,13 @@
 .container button:hover {
   background-color: white;
   color: #4e30f5;
+}
+
+@media only screen and (max-width: 375px) {
+  .container .imgLink {
+    width: 30%;
+  }
+  .container a {
+    width: 20%;
+  }
 }/*# sourceMappingURL=style.module.css.map */

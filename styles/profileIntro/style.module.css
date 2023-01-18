@@ -58,12 +58,49 @@
   box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 810px) {
   .intro {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
+  }
+  .intro .text {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .intro .text h1,
+.intro .text h4 {
+    text-align: center;
+  }
+  .intro .svgWrapper {
+    margin: 20vmin 2vmin;
+    margin-bottom: 8vmin;
+    padding: 30vmin 20vmin;
+  }
+  .intro .svgWrapper svg {
+    width: 80%;
+  }
+}
+@media only screen and (max-width: 475px) {
+  .intro .text h1 {
+    font-size: 150px;
+  }
+  .intro .text h4 {
+    font-size: 20px;
+    padding: 5vmin 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .intro .text h1 {
+    font-size: 120px;
+  }
+  .intro .text h4 {
+    font-size: 15px;
+    padding: 5vmin 0;
   }
 }/*# sourceMappingURL=style.module.css.map */

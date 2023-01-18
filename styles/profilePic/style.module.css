@@ -35,4 +35,31 @@
 .titleWrapper .pic input {
   height: 100%;
   opacity: 0;
+}
+
+@media only screen and (max-width: 770px) {
+  .titleWrapper h1 {
+    font-size: 70px;
+  }
+}
+@media only screen and (max-width: 620px) {
+  .titleWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .titleWrapper h1 {
+    text-align: center;
+    padding: 5vmin 0;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .titleWrapper h1 {
+    font-size: 50px;
+  }
+  .titleWrapper .pic {
+    width: 70%;
+  }
 }/*# sourceMappingURL=style.module.css.map */

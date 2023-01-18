@@ -48,3 +48,14 @@
     }
   }
 }
+
+@media only screen and (max-width: 375px) {
+  .container {
+    .imgLink {
+      width: 30%;
+    }
+    a {
+      width: 20%;
+    }
+  }
+}

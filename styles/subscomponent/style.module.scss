@@ -151,3 +151,126 @@
     color: white;
   }
 }
+
+@media only screen and (max-width: 950px) {
+  .container {
+    height: auto;
+    flex-wrap: wrap;
+    max-height: 75vh;
+    align-items: flex-start;
+    .tableWrapperWrapper {
+      height: auto;
+    }
+    .controls {
+      .dayChangeButtonWrapper {
+        margin: 5vmin 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  .td {
+    div {
+      font-size: 11px;
+      text-align: center;
+    }
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .container {
+    .controls {
+      .titleWrapper {
+        h1 {
+          font-size: 50px;
+        }
+      }
+      .dayChangeButtonWrapper {
+        button {
+          width: 80%;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .container {
+    .controls {
+      .titleWrapper {
+        h1 {
+          font-size: 40px;
+        }
+      }
+      .dayChangeButtonWrapper {
+        button {
+          width: 90%;
+          font-size: 12px;
+        }
+      }
+    }
+    .tableWrapperWrapper {
+      .tableWrapper {
+        .table {
+          .tbody {
+            div {
+              .td {
+                div {
+                  font-size: 10px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 300px) {
+  .container {
+    .tableWrapperWrapper {
+      .tableWrapper {
+        .table {
+          .tbody {
+            div {
+              padding: 1vmin 0;
+              height: auto;
+              border: none;
+              border-bottom: 1px solid $backgroundColor;
+              div {
+                border: none;
+                .td {
+                  border: none;
+                  div {
+                    border: none;
+                    font-size: 9px;
+                    text-align: center;
+                    padding: 0.5vmin;
+                  }
+                }
+              }
+            }
+          }
+          .thead {
+            .td {
+              div {
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .controls {
+      .titleWrapper {
+        h1 {
+          font-size: 30px;
+        }
+      }
+    }
+  }
+}

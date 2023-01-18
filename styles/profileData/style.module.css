@@ -102,4 +102,43 @@
   box-shadow: inset 20em 0 0 0 #4e30f5;
   color: white;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 770px) {
+  .profileData {
+    margin-top: 10vmin;
+  }
+}
+@media only screen and (max-width: 375px) {
+  .profileData .datas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .profileData .datas .dataWrapper {
+    border: none;
+    padding: 0;
+  }
+  .profileData .datas .dataWrapper .data {
+    width: 90%;
+  }
+  .profileData .datas .dataWrapper .data select,
+.profileData .datas .dataWrapper .data input {
+    width: 100%;
+  }
+  .profileData .datas .dataButton {
+    padding: 0;
+    margin-top: 5vmin;
+    width: 90%;
+  }
+  .profileData .datas .dataButton button {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 330px) {
+  .profileData {
+    width: 80%;
+  }
 }/*# sourceMappingURL=style.module.css.map */

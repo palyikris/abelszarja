@@ -56,7 +56,7 @@ export async function getServerSideProps() {
 
     return {
       props: {
-        data: $("div div .drazse_container").text()
+        data: $("div:nth-child(1) div").text()
       }
     };
   } catch (error) {

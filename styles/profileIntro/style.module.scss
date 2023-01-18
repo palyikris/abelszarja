@@ -49,8 +49,51 @@
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 810px) {
   .intro {
     @include centerDiv(column);
+    .text {
+      @include centerDiv(column);
+      h1,
+      h4 {
+        text-align: center;
+      }
+    }
+    .svgWrapper {
+      margin: 20vmin 2vmin;
+      margin-bottom: 8vmin;
+      padding: 30vmin 20vmin;
+      svg {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 475px) {
+  .intro {
+    .text {
+      h1 {
+        font-size: 150px;
+      }
+      h4 {
+        font-size: 20px;
+        padding: 5vmin 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px) {
+  .intro {
+    .text {
+      h1 {
+        font-size: 120px;
+      }
+      h4 {
+        font-size: 15px;
+        padding: 5vmin 0;
+      }
+    }
   }
 }

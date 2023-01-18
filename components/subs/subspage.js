@@ -5,8 +5,6 @@ import styles from "../../styles/subscomponent/style.module.css";
 import { useRouter } from "next/router";
 import { getUserData } from "../../lib/userData/firebase";
 import LoaderPage from "./../../ui/Loader";
-import { axios } from "axios";
-import { cheerio } from "cheerio";
 import { GetKossuthSubLines } from "./../../lib/subs/GetKossuthSubLines";
 
 export default function SubsPageComponent(props) {
