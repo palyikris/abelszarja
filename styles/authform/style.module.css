@@ -98,4 +98,68 @@
   border: 1px solid white;
   width: 100%;
   border-radius: 0 5px 5px 0;
+}
+
+@media only screen and (max-width: 1000px) {
+  .container form h3 {
+    font-size: 70px;
+  }
+  .container form .dataButton {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container form .dataButton button {
+    padding: 2vmin 10vmin;
+    margin-bottom: 5vmin;
+  }
+  .container .img {
+    background-position: 20% 50%;
+  }
+}
+@media only screen and (max-width: 910px) {
+  .container .img {
+    background-position: 10% 50%;
+  }
+}
+@media only screen and (max-width: 840px) {
+  .container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .container form {
+    border-radius: 5px;
+  }
+  .container .img {
+    display: none;
+  }
+}
+@media only screen and (max-width: 695px) {
+  .container form {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .container {
+    padding: 10vmin;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .container form h3 {
+    font-size: 50px;
+  }
+  .container form label {
+    font-size: 14px;
+  }
+  .container form .dataButton button {
+    padding: 3vmin 20vmin;
+  }
+  .container form .dataButton a {
+    font-size: 14px;
+  }
 }/*# sourceMappingURL=style.module.css.map */

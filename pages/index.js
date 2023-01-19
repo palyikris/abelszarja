@@ -4,24 +4,11 @@ import { useAuth } from "../context/AuthContext";
 import Link from "next/link";
 import CustomHead from "./../ui/CustomHead";
 import { useRouter } from "next/router";
+import { useState } from "react";
+import LoaderPage from "./../ui/Loader";
+import { useEffect } from "react";
 
 export default function Home() {
   let router = useRouter();
-
-  let { user } = useAuth();
-  if (user) {
-    router.push(`/user/${user.id}/profile`);
-  }
-
-  return (
-    <div>
-      <CustomHead
-        title="Maxt - Best tool to manage school for students!"
-        description="Maxt Landing Page."
-        keywords="maxt, index, landingpage"
-      ></CustomHead>
-      <h2>Főoldal xd</h2>
-      <Link href="/login">Login</Link>
-    </div>
-  );
+  router.push("/login");
 }

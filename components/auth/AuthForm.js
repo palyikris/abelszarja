@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import styles from "../../styles/authform/style.module.css";
 import AnimatedBackgroundPage from "./../../ui/animatedBackground";
 import { useEffect } from "react";
+import LoaderPage from "./../../ui/Loader";
 
 export default function AuthForm(props) {
   let [email, setEmail] = useState("");
@@ -21,7 +22,7 @@ export default function AuthForm(props) {
     } else {
       setIsLoading(false);
     }
-  });
+  }, []);
 
   async function handleSubmit(e) {
     setIsLoading(true);
@@ -30,7 +31,6 @@ export default function AuthForm(props) {
     if (props.isLogin) {
       try {
         await login(email, password);
-        router.push(`/user/${user.id}/profile`);
       } catch (error) {
         setError(error.message);
         setIsLoading(false);
@@ -38,12 +38,23 @@ export default function AuthForm(props) {
     } else {
       try {
         await signup(email, password);
-        router.push(`/user/${user.id}/profile`);
       } catch (error) {
         setError(error.message);
         setIsLoading(false);
       }
     }
+  }
+  if (user != undefined && error === "") {
+    router.push(`/user/${user.id}/profile`);
+  } else {
+  }
+
+  if (isLoading) {
+    return (
+      <div className={styles.container}>
+        <LoaderPage></LoaderPage>
+      </div>
+    );
   }
 
   return (
