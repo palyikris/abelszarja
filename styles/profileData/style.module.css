@@ -142,13 +142,14 @@
     width: 80%;
   }
   .profileData .datas .dataWrapper .data label {
-    margin-bottom: 1vmin;
+    margin-bottom: 3vmin;
   }
   .profileData .datas .dataWrapper .data select,
 .profileData .datas .dataWrapper .data input {
-    height: 15vmin;
+    height: 20vmin;
   }
   .profileData .datas .dataButton button {
     font-size: 10px;
+    height: 15vmin;
   }
 }/*# sourceMappingURL=style.module.css.map */
