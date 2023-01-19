@@ -149,12 +149,25 @@
     padding: 10vmin;
   }
 }
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 350px) {
   .container form h3 {
     font-size: 50px;
   }
   .container form label {
     font-size: 14px;
+    margin-bottom: 1vmin;
+  }
+  .container form .datas .data input {
+    padding: 5vmin 3vmin;
+  }
+  .container form .datas .data input::-moz-placeholder {
+    opacity: 0;
+  }
+  .container form .datas .data input:-ms-input-placeholder {
+    opacity: 0;
+  }
+  .container form .datas .data input::placeholder {
+    opacity: 0;
   }
   .container form .dataButton button {
     padding: 3vmin 20vmin;

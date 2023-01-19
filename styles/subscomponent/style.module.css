@@ -246,6 +246,9 @@
   }
 }
 @media only screen and (max-width: 300px) {
+  .container .tableWrapperWrapper {
+    padding: 10vmin 0;
+  }
   .container .tableWrapperWrapper .tableWrapper .table .tbody div {
     padding: 1vmin 0;
     height: auto;
@@ -269,5 +272,16 @@
   }
   .container .controls .titleWrapper h1 {
     font-size: 30px;
+  }
+  .container .controls .classWrapper label {
+    margin-bottom: 1vmin;
+  }
+  .container .controls .classWrapper select {
+    font-size: 12px;
+    height: 15vmin;
+  }
+  .container .controls .dayChangeButtonWrapper button {
+    font-size: 12px;
+    padding: 5vmin 10vmin;
   }
 }/*# sourceMappingURL=style.module.css.map */

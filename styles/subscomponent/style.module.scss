@@ -233,6 +233,8 @@
 @media only screen and (max-width: 300px) {
   .container {
     .tableWrapperWrapper {
+      padding: 10vmin 0;
+
       .tableWrapper {
         .table {
           .tbody {
@@ -269,6 +271,21 @@
       .titleWrapper {
         h1 {
           font-size: 30px;
+        }
+      }
+      .classWrapper {
+        label {
+          margin-bottom: 1vmin;
+        }
+        select {
+          font-size: 12px;
+          height: 15vmin;
+        }
+      }
+      .dayChangeButtonWrapper {
+        button {
+          font-size: 12px;
+          padding: 5vmin 10vmin;
         }
       }
     }

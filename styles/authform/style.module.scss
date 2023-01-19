@@ -124,7 +124,7 @@
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 350px) {
   .container {
     form {
       h3 {
@@ -132,6 +132,17 @@
       }
       label {
         font-size: 14px;
+        margin-bottom: 1vmin;
+      }
+      .datas {
+        .data {
+          input {
+            padding: 5vmin 3vmin;
+            &::placeholder {
+              opacity: 0;
+            }
+          }
+        }
       }
       .dataButton {
         button {

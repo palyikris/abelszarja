@@ -141,4 +141,14 @@
   .profileData {
     width: 80%;
   }
+  .profileData .datas .dataWrapper .data label {
+    margin-bottom: 1vmin;
+  }
+  .profileData .datas .dataWrapper .data select,
+.profileData .datas .dataWrapper .data input {
+    height: 15vmin;
+  }
+  .profileData .datas .dataButton button {
+    font-size: 10px;
+  }
 }/*# sourceMappingURL=style.module.css.map */
