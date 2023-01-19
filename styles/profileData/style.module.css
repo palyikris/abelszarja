@@ -147,6 +147,7 @@
   .profileData .datas .dataWrapper .data select,
 .profileData .datas .dataWrapper .data input {
     height: 20vmin;
+    padding: 0 10vmin;
   }
   .profileData .datas .dataButton button {
     font-size: 10px;

@@ -279,10 +279,12 @@
   .container .controls .classWrapper select {
     font-size: 12px;
     height: 20vmin;
+    padding: 0 10vmin;
   }
   .container .controls .dayChangeButtonWrapper button {
     font-size: 12px;
     padding: 5vmin 10vmin;
     height: 20vmin;
+    padding: 0 10vmin;
   }
 }/*# sourceMappingURL=style.module.css.map */
