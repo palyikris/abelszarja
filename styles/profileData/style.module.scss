@@ -43,7 +43,7 @@
           margin-top: 1vmin;
           border: 1.2px solid $backgroundColor;
           border-radius: 5px;
-          color: rgba($backgroundColor, 0.5);
+          color: $backgroundColor;
           width: 30vmin;
           option {
             transition: all 0.5s;
@@ -114,19 +114,25 @@
   }
 }
 
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 450px) {
   .profileData {
     width: 80%;
     .datas {
+      @include centerDiv(column);
       .dataWrapper {
+        border: none;
+        padding: 0;
         .data {
+          width: 90%;
           label {
             margin-bottom: 3vmin;
           }
           select,
           input {
             height: 20vmin;
-            padding: 0 10vmin;
+            padding: 0 5vmin;
+            width: 100%;
+            font-size: 15px;
           }
         }
       }

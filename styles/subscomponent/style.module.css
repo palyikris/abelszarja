@@ -223,29 +223,7 @@
     text-align: center;
   }
 }
-@media only screen and (max-width: 490px) {
-  .container .controls .titleWrapper h1 {
-    font-size: 50px;
-  }
-  .container .controls .dayChangeButtonWrapper button {
-    width: 80%;
-    font-size: 14px;
-  }
-}
-@media only screen and (max-width: 375px) {
-  .container .controls .titleWrapper h1 {
-    font-size: 40px;
-  }
-  .container .controls .dayChangeButtonWrapper button {
-    width: 90%;
-    font-size: 12px;
-  }
-  .container .tableWrapperWrapper .tableWrapper .table .tbody div .td div {
-    font-size: 10px;
-    text-align: center;
-  }
-}
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 450px) {
   .container .tableWrapperWrapper {
     padding: 10vmin 0;
   }
@@ -266,6 +244,7 @@
     font-size: 9px;
     text-align: center;
     padding: 0.5vmin;
+    font-size: 10px;
   }
   .container .tableWrapperWrapper .tableWrapper .table .thead .td div {
     font-size: 10px;
@@ -277,14 +256,14 @@
     margin-bottom: 3vmin;
   }
   .container .controls .classWrapper select {
-    font-size: 12px;
+    font-size: 15px;
     height: 20vmin;
-    padding: 0 10vmin;
+    width: 100%;
   }
   .container .controls .dayChangeButtonWrapper button {
-    font-size: 12px;
-    padding: 5vmin 10vmin;
-    height: 20vmin;
-    padding: 0 10vmin;
+    height: 25vmin;
+    width: 100%;
+    font-size: 15px;
+    text-align: center;
   }
 }/*# sourceMappingURL=style.module.css.map */

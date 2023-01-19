@@ -67,7 +67,7 @@
   margin-top: 1vmin;
   border: 1.2px solid #4e30f5;
   border-radius: 5px;
-  color: rgba(78, 48, 245, 0.5);
+  color: #4e30f5;
   width: 30vmin;
 }
 .profileData .datas .dataWrapper .data select option {
@@ -137,9 +137,23 @@
     width: 100%;
   }
 }
-@media only screen and (max-width: 380px) {
+@media only screen and (max-width: 450px) {
   .profileData {
     width: 80%;
+  }
+  .profileData .datas {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .profileData .datas .dataWrapper {
+    border: none;
+    padding: 0;
+  }
+  .profileData .datas .dataWrapper .data {
+    width: 90%;
   }
   .profileData .datas .dataWrapper .data label {
     margin-bottom: 3vmin;
@@ -147,7 +161,9 @@
   .profileData .datas .dataWrapper .data select,
 .profileData .datas .dataWrapper .data input {
     height: 20vmin;
-    padding: 0 10vmin;
+    padding: 0 5vmin;
+    width: 100%;
+    font-size: 15px;
   }
   .profileData .datas .dataButton button {
     font-size: 10px;

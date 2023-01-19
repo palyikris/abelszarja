@@ -95,7 +95,7 @@
     padding: 5vmin 0;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 450px) {
   .intro .text h1 {
     font-size: 120px;
   }
