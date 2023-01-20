@@ -250,7 +250,7 @@
     font-size: 10px;
   }
   .container .controls .titleWrapper h1 {
-    font-size: 30px;
+    font-size: 40px;
   }
   .container .controls .classWrapper label {
     margin-bottom: 3vmin;
@@ -265,5 +265,6 @@
     width: 100%;
     font-size: 15px;
     text-align: center;
+    padding: 0;
   }
 }/*# sourceMappingURL=style.module.css.map */

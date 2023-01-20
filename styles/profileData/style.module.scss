@@ -87,36 +87,10 @@
   }
 }
 
-@media only screen and (max-width: 375px) {
-  .profileData {
-    .datas {
-      @include centerDiv(column);
-      .dataWrapper {
-        border: none;
-        padding: 0;
-        .data {
-          width: 90%;
-          select,
-          input {
-            width: 100%;
-          }
-        }
-      }
-      .dataButton {
-        padding: 0;
-        margin-top: 5vmin;
-        width: 90%;
-        button {
-          width: 100%;
-        }
-      }
-    }
-  }
-}
-
 @media only screen and (max-width: 450px) {
   .profileData {
     width: 80%;
+    padding: 3vmin 5vmin;
     .datas {
       @include centerDiv(column);
       .dataWrapper {
@@ -132,14 +106,18 @@
             height: 20vmin;
             padding: 0 5vmin;
             width: 100%;
-            font-size: 15px;
+            font-size: 12px;
           }
         }
       }
       .dataButton {
+        padding: 0;
+        margin-top: 5vmin;
+        width: 90%;
         button {
           font-size: 10px;
           height: 15vmin;
+          width: 100%;
         }
       }
     }
