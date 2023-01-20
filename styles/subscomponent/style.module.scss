@@ -176,10 +176,28 @@
       text-align: center;
     }
   }
+  .container {
+    .controls {
+      .dayChangeButtonWrapper {
+        button {
+          &:hover {
+            background-color: white;
+            color: $backgroundColor;
+            box-shadow: inset 0 0 0 0 $backgroundColor;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media only screen and (max-width: 450px) {
   .container {
+    .text {
+      h1 {
+        font-size: 40px;
+      }
+    }
     .tableWrapperWrapper {
       padding: 10vmin 0;
 
@@ -218,11 +236,14 @@
     }
     .controls {
       .titleWrapper {
+        margin-bottom: 10vmin;
         h1 {
           font-size: 40px;
         }
       }
       .classWrapper {
+        padding: 0;
+        width: 90%;
         label {
           margin-bottom: 3vmin;
         }
@@ -236,13 +257,12 @@
       }
       .dayChangeButtonWrapper {
         button {
-          height: auto;
-          width: 100%;
-          font-size: 15px;
-          text-align: center;
-          padding: 0;
-          display: block;
+          @include centerDiv(row);
           padding: 10vmin 0;
+          border: none;
+          p {
+            text-align: center;
+          }
         }
       }
     }

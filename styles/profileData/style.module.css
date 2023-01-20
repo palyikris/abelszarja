@@ -97,6 +97,11 @@
   padding: 2vmin 8vmin;
   background-color: white;
   transition: 0.9s;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
 }
 .profileData .datas .dataButton button:hover {
   box-shadow: inset 20em 0 0 0 #4e30f5;

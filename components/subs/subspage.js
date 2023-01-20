@@ -29,10 +29,10 @@ export default function SubsPageComponent(props) {
   }, []);
 
   if (error) {
+    console.error(error);
     return (
       <div className={styles.tableWrapperWrapper}>
         <h2>An error happened</h2>
-        <h5>{error}</h5>
       </div>
     );
   } else {
@@ -166,7 +166,7 @@ export default function SubsPageComponent(props) {
         {lines.length === 0 ? (
           <>
             <div className={styles.text}>
-              <h1>Nincsenek helyettesítéseks</h1>
+              <h1>Nincsenek helyettesítések!</h1>
             </div>
           </>
         ) : (
@@ -303,7 +303,7 @@ export default function SubsPageComponent(props) {
                   setIsTodaySubs(false);
                 }}
               >
-                Holnapi helyettesítések
+                <p> Holnapi helyettesítések</p>
               </button>
             ) : (
               <button
@@ -311,7 +311,7 @@ export default function SubsPageComponent(props) {
                   setIsTodaySubs(true);
                 }}
               >
-                Mai helyettesítések
+                <p> Mai helyettesítések</p>
               </button>
             )}
           </div>
@@ -320,7 +320,7 @@ export default function SubsPageComponent(props) {
       {lines.length === 0 ? (
         <>
           <div className={styles.text}>
-            <h1>Nincsenek helyettesítéseks</h1>
+            <h1>Nincsenek helyettesítések!</h1>
           </div>
         </>
       ) : (

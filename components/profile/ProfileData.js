@@ -140,7 +140,9 @@ export default function ProfileDataPage() {
             </div>
           )}
           <div className={styles.dataButton}>
-            <button type="submit">OK</button>
+            <button type="submit">
+              <p>OK</p>
+            </button>
           </div>
         </form>
       </div>
