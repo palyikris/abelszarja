@@ -11,6 +11,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useAuth } from "./../../../context/AuthContext";
 import LoaderPage from "./../../../ui/Loader";
+import { getAllUserId } from "../../../lib/userData/firebase";
 
 export default function SubsPage(props) {
   let router = useRouter();
@@ -47,7 +48,20 @@ export default function SubsPage(props) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticPaths() {
+  let response = await getAllUserId();
+  let paths = response.map((path) => ({
+    params: {
+      userId: path.id
+    }
+  }));
+  return {
+    paths,
+    fallback: false
+  };
+}
+
+export async function getStaticProps() {
   try {
     const { data } = await axios.get("https://apps.karinthy.hu/helyettesites/");
     const $ = cheerio.load(data);
@@ -62,7 +76,8 @@ export async function getServerSideProps() {
         todayPageData: $(".live.today tbody").text(),
         tomorrowPageData: $(".live.tomorrow tbody").text(),
         kossuthData: kossuth(".tartalom:not(:last-child)").text()
-      }
+      },
+      revalidate: 10800
     };
   } catch (error) {
     return {
@@ -70,7 +85,8 @@ export async function getServerSideProps() {
         todayPageData: [],
         tomorrowPageData: [],
         error: error.message
-      }
+      },
+      revalidate: 10800
     };
   }
 }

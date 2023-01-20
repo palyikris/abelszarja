@@ -134,7 +134,6 @@ export default function ProfileDataPage() {
                 >
                   <option value="">Válassz susut!</option>
                   <option value="Karinthy">Karinthy</option>
-                  <option value="Kossuth">Kossuth</option>
                 </select>
               </div>
             </div>
