@@ -109,12 +109,23 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 770px) {
+@media only screen and (max-width: 870px) {
   .profileData {
     margin-top: 10vmin;
   }
+  .profileData .datas .dataWrapper {
+    padding: 0;
+  }
+  .profileData .datas .dataWrapper .data {
+    width: 90%;
+  }
+  .profileData .datas .dataWrapper .data label,
+.profileData .datas .dataWrapper .data input,
+.profileData .datas .dataWrapper .data select {
+    width: 100%;
+  }
 }
-@media only screen and (max-width: 450px) {
+@media only screen and (max-width: 500px) {
   .profileData {
     width: 80%;
     padding: 3vmin 5vmin;
