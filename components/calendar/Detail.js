@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import LoaderPage from "./../../ui/Loader";
 import styles from "../../styles/calendardetail/style.module.css";
 import CalendarSavingPage from "./DetailSavingCalendar";
+import { getSubjects } from "../../lib/subjects/firebase";
 
 export default function DetailComponent(props) {
   let router = useRouter();
@@ -16,6 +17,7 @@ export default function DetailComponent(props) {
   let [teacher, setTeacher] = useState("");
   let [isEditClass, setIsEditClass] = useState(false);
   let [isDeleteForSurePopUp, setIsDeleteForSurePopUp] = useState(false);
+  let [subjects, setSubjects] = useState([]);
   let days = ["monday", "tuesday", "wednesday", "thursday", "friday"];
   let napok = ["Hétfő", "Kedd", "Szerda", "Csütörtök", "Péntek"];
   let hours = [
@@ -37,9 +39,12 @@ export default function DetailComponent(props) {
   let { id, data } = props;
 
   useEffect(() => {
-    loadUserNickname()
+    loadUserNickname().then((data) => {
+      setUserNickname(data);
+    });
+    getSubjects()
       .then((data) => {
-        setUserNickname(data);
+        setSubjects(data);
       })
       .then(() => {
         setIsLoading(false);
@@ -168,7 +173,6 @@ export default function DetailComponent(props) {
   let subject;
   try {
     subject = data[parseInt(id.split("_")[0])][parseInt(id.split("_")[1])];
-    console.log(subject);
   } catch (error) {}
   return (
     <>
@@ -240,14 +244,30 @@ export default function DetailComponent(props) {
                         <form onSubmit={updateSubject}>
                           <div className={styles.data}>
                             <h5>Tantárgy:</h5>
-                            <input
+                            {/* <input
                               type="text"
                               placeholder={subject.name}
                               value={name}
                               onChange={(e) => {
                                 setName(e.target.value);
                               }}
-                            />
+                            /> */}
+                            {subjects.length > 0 ? (
+                              <select
+                                onChange={(e) => {
+                                  setName(e.target.value);
+                                }}
+                              >
+                                <option value="">Válassz tantárgyat</option>
+                                {subjects.map((subject, i) => (
+                                  <option value={subject} key={i}>
+                                    {subject}
+                                  </option>
+                                ))}
+                              </select>
+                            ) : (
+                              <h5>Hiba a tantárgyak betöltése közben.</h5>
+                            )}
                           </div>
                           <div className={styles.data}>
                             <h5>Tartam:</h5>
@@ -358,14 +378,22 @@ export default function DetailComponent(props) {
                     >
                       <div>
                         <label htmlFor="">Tantárgy</label>
-                        <input
-                          type="text"
-                          placeholder="Pl.: Matek"
-                          onChange={(e) => {
-                            setName(e.target.value);
-                          }}
-                          value={name}
-                        />
+                        {subjects.length > 0 ? (
+                          <select
+                            onChange={(e) => {
+                              setName(e.target.value);
+                            }}
+                          >
+                            <option value="">Válassz tantárgyat</option>
+                            {subjects.map((subject, i) => (
+                              <option value={subject} key={i}>
+                                {subject}
+                              </option>
+                            ))}
+                          </select>
+                        ) : (
+                          <h5>Hiba a tantárgyak betöltése közben.</h5>
+                        )}
                       </div>
                       <div>
                         <label htmlFor="">Kezdet</label>

@@ -110,7 +110,8 @@
           margin-left: 2vmin;
         }
       }
-      input {
+      input,
+      select {
         width: 100%;
         font-size: 15px;
         color: $backgroundColor;
@@ -146,7 +147,8 @@
             margin-left: 2vmin;
           }
         }
-        input {
+        input,
+        select {
           width: 100%;
           font-size: 15px;
           color: $backgroundColor;
@@ -178,7 +180,8 @@
           color: $backgroundColor;
           font-weight: bold;
         }
-        input {
+        input,
+        select {
           width: 100%;
           padding: 1vmin 1vmin;
           border-radius: 5px;
@@ -206,5 +209,12 @@
         }
       }
     }
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  .container {
+    width: 90%;
+    border-radius: 5px;
   }
 }

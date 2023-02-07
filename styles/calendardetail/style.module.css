@@ -135,7 +135,8 @@
   text-align: left;
   margin-left: 2vmin;
 }
-.container .datas .data input {
+.container .datas .data input,
+.container .datas .data select {
   width: 100%;
   font-size: 15px;
   color: #4e30f5;
@@ -178,7 +179,8 @@
   text-align: left;
   margin-left: 2vmin;
 }
-.container .datas form .data input {
+.container .datas form .data input,
+.container .datas form .data select {
   width: 100%;
   font-size: 15px;
   color: #4e30f5;
@@ -221,7 +223,8 @@
   color: #4e30f5;
   font-weight: bold;
 }
-.container .datas .classAdderWrapper div input {
+.container .datas .classAdderWrapper div input,
+.container .datas .classAdderWrapper div select {
   width: 100%;
   padding: 1vmin 1vmin;
   border-radius: 5px;
@@ -250,4 +253,11 @@
   background-color: #ff001a;
   color: white;
   box-shadow: 0 0 0 0 #ff001a;
+}
+
+@media only screen and (max-width: 850px) {
+  .container {
+    width: 90%;
+    border-radius: 5px;
+  }
 }/*# sourceMappingURL=style.module.css.map */
