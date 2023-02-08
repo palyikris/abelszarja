@@ -152,7 +152,7 @@ export async function getStaticProps() {
         tomorrowPageData: $(".live.tomorrow tbody").text(),
         kossuthData: kossuth(".tartalom:not(:last-child)").text()
       },
-      revalidate: 3600
+      revalidate: 1200
     };
   } catch (error) {
     return {
@@ -161,7 +161,7 @@ export async function getStaticProps() {
         tomorrowPageData: [],
         error: error.message
       },
-      revalidate: 3600
+      revalidate: 1200
     };
   }
 }
