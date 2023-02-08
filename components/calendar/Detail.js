@@ -36,6 +36,22 @@ export default function DetailComponent(props) {
     "19:00",
     "20:00"
   ];
+  let hoursEnd = [
+    "07:45",
+    "08:45",
+    "09:45",
+    "10:45",
+    "11:45",
+    "12:45",
+    "13:45",
+    "14:45",
+    "15:45",
+    "16:45",
+    "17:45",
+    "18:45",
+    "19:45",
+    "20:45"
+  ];
   let { id, data } = props;
 
   useEffect(() => {
@@ -366,6 +382,8 @@ export default function DetailComponent(props) {
                       <button
                         onClick={() => {
                           setIsClassAdder(true);
+                          setTimeStart(hours[parseInt(id.split("_")[0])]);
+                          setTimeEnd(hoursEnd[parseInt(id.split("_")[0])]);
                         }}
                       >
                         Adj hozzá
