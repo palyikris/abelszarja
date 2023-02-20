@@ -5,8 +5,8 @@ import CalendarComponent from "../../../components/calendar/CalendarComponent";
 import styles from "../../../styles/calendar/style.module.css";
 import AnimatedBackgroundPage from "./../../../ui/animatedBackground";
 import { getAllUserId } from "../../../lib/userData/firebase";
-import { axios } from "axios";
-import { cheerio } from "cheerio";
+import axios from "axios";
+import cheerio from "cheerio";
 import LoaderPage from "./../../../ui/Loader";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
@@ -37,7 +37,10 @@ export default function CalendarPage(props) {
         keywords="maxt, calendar"
       ></CustomHead>
       <Topnav userId={router.query.userId}></Topnav>
-      <CalendarComponent props={props}></CalendarComponent>
+      <CalendarComponent
+        todayPageData={props.todayPageData}
+        tomorrowPageData={props.tomorrowPageData}
+      ></CalendarComponent>
       <AnimatedBackgroundPage></AnimatedBackgroundPage>
     </div>
   );

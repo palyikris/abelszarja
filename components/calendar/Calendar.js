@@ -5,11 +5,11 @@ import { GetCalendarLines } from "./../../lib/userCalendar/getCalendarLines";
 import { useRouter } from "next/router";
 import DetailComponent from "./Detail";
 import { getUserData } from "../../lib/userData/firebase";
+import { getSubLines } from "./../../lib/subs/GetSubLines";
 
 export default function CalendarPage(props) {
   let router = useRouter();
   let [days, setDays] = useState([]);
-  let { subs, tomorrowSubs } = props;
   let [isLoading, setIsLoading] = useState(true);
   let [idToDetermineSubject, setIdToDetermineSubject] = useState("");
   let isClassSubbed = false;
@@ -30,6 +30,10 @@ export default function CalendarPage(props) {
     "19:00",
     "20:00"
   ];
+  let { todayPageData, tomorrowPageData } = props;
+  console.log(todayPageData, tomorrowPageData);
+  todayPageData = getSubLines(todayPageData);
+  tomorrowPageData = getSubLines(tomorrowPageData);
 
   async function getCalendarData() {
     try {
@@ -96,8 +100,8 @@ export default function CalendarPage(props) {
                 let date = new Date();
                 isClassSubbed = false;
                 if (date.getDay() - 1 === j) {
-                  if (subs.length >= 1) {
-                    subs.map((sub) => {
+                  if (todayPageData.length >= 1) {
+                    todayPageData.map((sub) => {
                       if (subject.id) {
                         if (
                           (subject.id.split("_")[0] === sub.classNumber &&
@@ -183,8 +187,8 @@ export default function CalendarPage(props) {
                     });
                   }
                 } else if (date.getDay() === j) {
-                  if (tomorrowSubs.length >= 1) {
-                    tomorrowSubs.map((sub) => {
+                  if (tomorrowPageData.length >= 1) {
+                    tomorrowPageData.map((sub) => {
                       if (subject.id) {
                         if (
                           (subject.id.split("_")[0] === sub.classNumber &&
