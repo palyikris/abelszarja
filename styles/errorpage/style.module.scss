@@ -1,0 +1,83 @@
+@import "../uniform";
+
+.container {
+  @include centerDiv(column);
+  height: 100%;
+  max-height: 80vmin;
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+  form {
+    @include centerDiv(column);
+    justify-content: flex-start;
+    background-color: white;
+    width: auto;
+    padding: 10vmin 10vmin 5vmin 10vmin;
+    height: auto;
+    max-height: 90%;
+    overflow-y: scroll;
+    border-radius: 10px;
+    h1,
+    h4 {
+      color: $backgroundColor;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 2vmin;
+      font-size: 60px;
+    }
+    h4 {
+      margin-bottom: 10vmin;
+      font-size: 20px;
+    }
+    .data,
+    .dataTextArea {
+      @include centerDiv(column);
+      padding: 1vmin 0;
+      label,
+      input {
+        width: 100%;
+        color: $backgroundColor;
+      }
+      input {
+        border: 1px solid $backgroundColor;
+        padding: 3vmin 1vmin;
+        border-radius: 5px;
+      }
+      h2 {
+        width: 100%;
+        text-align: center;
+        color: $backgroundColor;
+        font-size: 50px;
+        margin: 10vmin 0 5vmin 0;
+      }
+      textarea {
+        resize: none;
+        border: 1px solid $backgroundColor;
+        padding: 1vmin;
+        color: $backgroundColor;
+        border-radius: 5px;
+      }
+    }
+    .dataButton {
+      @include centerDiv(row);
+      margin-top: 10vmin;
+      button {
+        width: 50%;
+        padding: 2vmin 0;
+        background-color: $backgroundColor;
+        color: white;
+        border: 1px solid $backgroundColor;
+        border-radius: 5px;
+        transition: all 0.6s;
+        &:hover {
+          cursor: pointer;
+          background-color: white;
+          color: $backgroundColor;
+        }
+      }
+    }
+  }
+}

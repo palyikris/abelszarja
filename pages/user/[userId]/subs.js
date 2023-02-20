@@ -17,16 +17,14 @@ import { collection } from "firebase/firestore";
 import { db } from "./../../../firebaseConfig";
 import { setDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
+import { useSubsContext } from "../../../context/SubsContext";
 
 export default function SubsPage(props) {
   let router = useRouter();
   let [isLoading, setIsLoading] = useState(true);
   let { logout, user } = useAuth();
   let date = new Date();
-  let dateToUpdate = `${date.getFullYear()}_${date.getMonth()}_${date.getDate()}`;
-  let tomorrowDateToUpdate = `${date.getFullYear()}_${date.getMonth()}_${
-    date.getDate() + 1
-  }`;
+  date.getDate() + 1;
 
   useEffect(() => {
     if (user.id != router.query.userId) {
@@ -34,72 +32,7 @@ export default function SubsPage(props) {
     } else {
       setIsLoading(false);
     }
-
-    updateTodaySubs();
-    updateTomorrowSubs();
   });
-
-  async function updateTodaySubs() {
-    try {
-      let dataList = getSubLines(props.todayPageData);
-      dataList.map((data) => {
-        let dbInstance = doc(
-          db,
-          `subs/todaySubs/${dateToUpdate}/${data.classNumber}_${data.class}`
-        );
-        if (data.note.type === "svg") {
-          data.note = "";
-        }
-        if (data.roomNumber.type === "svg") {
-          data.roomNumber = "";
-        }
-        if (data.substituteTeacher.type === "svg") {
-          data.substituteTeacher = "";
-        }
-        setDoc(dbInstance, {
-          class: data.class,
-          classNumber: data.classNumber,
-          note: data.note,
-          roomNumber: data.roomNumber,
-          subject: data.subject,
-          substituteTeacher: data.substituteTeacher,
-          substitutedTeacher: data.substitutedTeacher
-        });
-      });
-    } catch (error) {}
-  }
-
-  async function updateTomorrowSubs() {
-    try {
-      let dataList = getSubLines(props.tomorrowPageData);
-      dataList.map((data) => {
-        let dbInstance = doc(
-          db,
-          `subs/tomorrowSubs/${tomorrowDateToUpdate}/${data.classNumber}_${data.class}`
-        );
-        if (data.note.type === "svg") {
-          data.note = "";
-        }
-        if (data.roomNumber.type === "svg") {
-          data.roomNumber = "";
-        }
-        if (data.substituteTeacher.type === "svg") {
-          data.substituteTeacher = "";
-        }
-        setDoc(dbInstance, {
-          class: data.class,
-          classNumber: data.classNumber,
-          note: data.note,
-          roomNumber: data.roomNumber,
-          subject: data.subject,
-          substituteTeacher: data.substituteTeacher,
-          substitutedTeacher: data.substitutedTeacher
-        });
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }
 
   return (
     <div className={styles.container}>

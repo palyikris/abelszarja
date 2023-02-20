@@ -74,7 +74,7 @@
     flex-direction: column;
   }
   .intro .text h1,
-.intro .text h4 {
+  .intro .text h4 {
     text-align: center;
   }
   .intro .svgWrapper {
