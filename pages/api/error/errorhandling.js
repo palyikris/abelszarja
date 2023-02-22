@@ -12,7 +12,8 @@ export default async function ErrorHandlingPage(req, res) {
         date: date,
         name: name,
         email: email,
-        error: error
+        error: error,
+        status: "pending"
       });
       res.status(200).json({ message: response });
     } catch (error) {

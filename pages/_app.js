@@ -4,8 +4,10 @@ import { useRouter } from "next/router";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 import Head from "next/head";
 import ErrorBoundary from "./errorboundary";
+import ExtraProtectedRoute from "../components/auth/ExtraProtectedRoute";
 
 const noAuthRequired = ["/login", "/signup", "/"];
+const extraProtectionRequired = ["/errors"];
 
 function MyApp({ Component, pageProps }) {
   let router = useRouter();
@@ -19,9 +21,17 @@ function MyApp({ Component, pageProps }) {
         </ErrorBoundary>
       ) : (
         <ProtectedRoute>
-          <ErrorBoundary>
-            <Component {...pageProps} />
-          </ErrorBoundary>
+          {extraProtectionRequired ? (
+            <ExtraProtectedRoute>
+              <ErrorBoundary>
+                <Component {...pageProps} />
+              </ErrorBoundary>
+            </ExtraProtectedRoute>
+          ) : (
+            <ErrorBoundary>
+              <Component {...pageProps} />
+            </ErrorBoundary>
+          )}
         </ProtectedRoute>
       )}
     </AuthContextProvider>
