@@ -1,0 +1,14 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 10vmin 5vmin;
+  margin-top: 10vmin;
+  justify-content: space-around;
+}
+.container ::-webkit-scrollbar,
+.container ::-webkit-scrollbar-track {
+  display: none;
+}/*# sourceMappingURL=style.module.css.map */

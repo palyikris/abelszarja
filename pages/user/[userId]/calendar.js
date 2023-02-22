@@ -32,7 +32,7 @@ export default function CalendarPage(props) {
   return (
     <div className={styles.container}>
       <CustomHead
-        title="Maxt Calendar"
+        title="Maxt Naptár"
         description="Maxt Calendar Page."
         keywords="maxt, calendar"
       ></CustomHead>

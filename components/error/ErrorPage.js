@@ -31,6 +31,18 @@ export default function ErrorPage() {
       })
     });
     response = await response.json();
+    let otherResponse = await fetch("/api/user/handleInbox", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        userId: router.query.userId,
+        date: dateCreated,
+        sendername: "Maxt Hibakezelés",
+        message:
+          "Köszönjük a hiba jelentését, üzenetét fogadtuk, és igyekszünk kijavítani. Amint kész van, értesítjük Önt. Csók, Maxt."
+      })
+    });
+    otherResponse = await otherResponse.json();
     setIsLoading(false);
   }
 

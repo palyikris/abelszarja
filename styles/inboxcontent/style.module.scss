@@ -1,0 +1,121 @@
+@import "../uniform";
+
+.container {
+  @include centerDiv(column);
+  background-color: white;
+  justify-content: flex-start;
+  border-radius: 5px;
+  padding: 5vmin 0;
+  height: 60vmin;
+  max-height: 80vmin;
+  overflow-y: scroll;
+  .icon {
+    @include centerDiv(row);
+    justify-content: space-evenly;
+    svg {
+      width: 50px;
+      color: $backgroundColor;
+    }
+    button {
+      background-color: transparent;
+      border: none;
+      border-radius: 5px;
+      transition: all 0.6s;
+      &:hover {
+        background-color: rgba($backgroundColor, 0.1);
+        cursor: pointer;
+      }
+    }
+  }
+  .mails {
+    @include centerDiv(column);
+    border-top: 1px solid $backgroundColor;
+    padding: 0 1vmin;
+    padding-top: 5vmin;
+    justify-content: flex-start;
+    margin-top: 5vmin;
+    h1 {
+      color: $backgroundColor;
+      width: 100%;
+      text-align: center;
+    }
+    .mail {
+      @include centerDiv(row);
+      width: 90%;
+      justify-content: space-between;
+      border: 1px solid $backgroundColor;
+      border-radius: 5px;
+      padding: 1vmin 2vmin;
+      transition: all 0.6s;
+      color: $backgroundColor;
+      background-color: transparent;
+      margin: 1vmin 0;
+      p {
+        color: inherit;
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: $backgroundColor;
+        color: white;
+      }
+    }
+  }
+}
+
+.data {
+  @include centerDiv(column);
+  justify-content: space-evenly;
+  padding: 0 2vmin;
+  label,
+  input,
+  textarea {
+    width: 100%;
+    color: $backgroundColor;
+    padding: 0;
+  }
+  input {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+  }
+  &:nth-child(1) {
+    margin-bottom: 5vmin;
+  }
+  textarea {
+    resize: none;
+    margin-top: 1vmin;
+    border: 1px solid $backgroundColor;
+    border-radius: 5px;
+    padding: 1vmin;
+  }
+  &:last-child {
+    @include centerDiv(row);
+    justify-content: space-evenly;
+    padding: 5vmin 0;
+    button {
+      width: 100%;
+      margin: 0 1vmin;
+      padding: 1vmin 0;
+      background-color: transparent;
+      border: 1px solid $backgroundColor;
+      border-radius: 5px;
+      color: $backgroundColor;
+      transition: all 0.6s;
+      &:last-child {
+        background-color: $red;
+        border: 1px solid $red;
+        border-radius: 5px;
+        color: white;
+        &:hover {
+          background-color: transparent;
+          color: $red;
+        }
+      }
+      &:hover {
+        background-color: $backgroundColor;
+        color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -46,6 +46,7 @@
       color: inherit;
     }
     &:hover {
+      cursor: pointer;
       background-color: white;
       color: $backgroundColor;
     }

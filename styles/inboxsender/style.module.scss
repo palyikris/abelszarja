@@ -1,0 +1,183 @@
+@import "../uniform";
+
+.container {
+  @include centerDiv(column);
+  background-color: white;
+  justify-content: flex-start;
+  border-radius: 5px;
+  padding: 5vmin 0;
+  height: 60vmin;
+  max-height: 60vmin;
+  overflow-y: scroll;
+  margin-left: 10vmin;
+  .icon {
+    @include centerDiv(row);
+    svg {
+      width: 50px;
+      color: $backgroundColor;
+    }
+  }
+  form {
+    @include centerDiv(column);
+    border-top: 1px solid $backgroundColor;
+    padding: 0 1vmin;
+    padding-top: 10vmin;
+    margin-top: 5vmin;
+    div {
+      @include centerDiv(column);
+      textarea,
+      label {
+        width: 70%;
+        color: $backgroundColor;
+      }
+      label {
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+      }
+      textarea {
+        resize: none;
+        margin-top: 2vmin;
+        border: 1px solid $backgroundColor;
+        border-radius: 5px;
+        padding: 1vmin;
+      }
+      button {
+        margin-top: 10vmin;
+        padding: 1vmin 0vmin;
+        width: 100%;
+        border: 1px solid $backgroundColor;
+        background-color: $backgroundColor;
+        color: white;
+        transition: all 0.6s;
+        border-radius: 5px;
+        &:hover {
+          cursor: pointer;
+          background-color: transparent;
+          color: $backgroundColor;
+        }
+        &:last-child {
+          margin-top: 2vmin;
+        }
+      }
+      &:last-child {
+        @include centerDiv(row);
+        padding: 0 3vmin;
+        button {
+          margin: 0;
+          margin-top: 3vmin;
+          &:last-child {
+            margin-left: 3vmin;
+            width: 70%;
+          }
+        }
+      }
+    }
+  }
+  .searchWrapper {
+    @include centerDiv(row);
+    border-top: 1px solid $backgroundColor;
+    padding: 0 1vmin;
+    padding-top: 10vmin;
+    margin-top: 5vmin;
+    h3 {
+      width: 80%;
+      text-align: center;
+      color: $backgroundColor;
+    }
+    .search {
+      @include centerDiv(row);
+      justify-content: flex-end;
+      padding: 0 2vmin;
+      input {
+        height: 5vmin;
+        width: 100%;
+        border: 1px solid $backgroundColor;
+        border-right: none;
+        border-radius: 10px 0 0 10px;
+        padding-left: 1vmin;
+      }
+      button {
+        height: 5vmin;
+        width: 8vmin;
+        border: 1px solid $backgroundColor;
+        background-color: transparent;
+        border-radius: 0 10px 10px 0;
+        transition: all 0.6s;
+        color: $backgroundColor;
+        &:hover {
+          background-color: $backgroundColor;
+          color: white;
+          cursor: pointer;
+        }
+        svg {
+          width: 15px;
+          color: inherit;
+        }
+      }
+    }
+  }
+  .idWrapper {
+    @include centerDiv(column);
+    padding: 5vmin 0;
+    p {
+      color: $backgroundColor;
+      margin-bottom: 1vmin;
+    }
+    button {
+      background-color: $backgroundColor;
+      color: white;
+      border: 1px solid $backgroundColor;
+      width: 50%;
+      padding: 1vmin 0;
+      border-radius: 5px;
+      transition: all 0.6s;
+      &:hover {
+        background-color: transparent;
+        color: $backgroundColor;
+        cursor: pointer;
+      }
+    }
+  }
+  .contacts {
+    @include centerDiv(column);
+    padding: 0 1vmin;
+    justify-content: flex-start;
+    margin-top: 5vmin;
+    h1 {
+      color: $backgroundColor;
+      width: 100%;
+      text-align: center;
+    }
+    .searchedUser,
+    .classmate {
+      @include centerDiv(row);
+      width: 90%;
+      margin: 1vmin 0;
+      justify-content: space-between;
+      padding: 1.5vmin 3vmin;
+      border: 1px solid $backgroundColor;
+      border-radius: 5px;
+      p {
+        color: $backgroundColor;
+      }
+      button {
+        @include centerDiv(row);
+        width: auto;
+        padding: 1.5vmin 3vmin;
+        background-color: transparent;
+        border: none;
+        transition: all 0.6s;
+        border-radius: 5px;
+        &:hover {
+          background-color: rgba($backgroundColor, 0.1);
+          cursor: pointer;
+        }
+        svg {
+          width: 15px;
+          color: $backgroundColor;
+        }
+      }
+    }
+  }
+}

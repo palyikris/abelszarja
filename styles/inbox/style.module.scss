@@ -1,0 +1,12 @@
+@import "../uniform";
+
+.container {
+  @include centerDiv(row);
+  padding: 10vmin 5vmin;
+  margin-top: 10vmin;
+  justify-content: space-around;
+  ::-webkit-scrollbar,
+  ::-webkit-scrollbar-track {
+    display: none;
+  }
+}

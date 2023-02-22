@@ -37,7 +37,7 @@ export default function SubsPage(props) {
   return (
     <div className={styles.container}>
       <CustomHead
-        title="Maxt Substitutions"
+        title="Maxt Helyettesítés"
         description="Maxt Substitutions Page for Maxt users."
         keywords="maxt, substitutions"
       ></CustomHead>

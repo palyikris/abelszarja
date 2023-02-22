@@ -28,7 +28,7 @@ export default function ProfilePage() {
   return (
     <div className={styles.container}>
       <CustomHead
-        title="Maxt Profile"
+        title="Maxt Profil"
         description="Maxt Profile Page for Maxt users."
         keywords="maxt, profile"
       ></CustomHead>

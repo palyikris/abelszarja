@@ -1,0 +1,229 @@
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  justify-content: flex-start;
+  border-radius: 5px;
+  padding: 5vmin 0;
+  height: 60vmin;
+  max-height: 60vmin;
+  overflow-y: scroll;
+  margin-left: 10vmin;
+}
+.container .icon {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.container .icon svg {
+  width: 50px;
+  color: #4e30f5;
+}
+.container form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-top: 1px solid #4e30f5;
+  padding: 0 1vmin;
+  padding-top: 10vmin;
+  margin-top: 5vmin;
+}
+.container form div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container form div textarea,
+.container form div label {
+  width: 70%;
+  color: #4e30f5;
+}
+.container form div label {
+  width: 100%;
+  text-align: center;
+  font-size: 30px;
+}
+.container form div textarea {
+  resize: none;
+  margin-top: 2vmin;
+  border: 1px solid #4e30f5;
+  border-radius: 5px;
+  padding: 1vmin;
+}
+.container form div button {
+  margin-top: 10vmin;
+  padding: 1vmin 0vmin;
+  width: 100%;
+  border: 1px solid #4e30f5;
+  background-color: #4e30f5;
+  color: white;
+  transition: all 0.6s;
+  border-radius: 5px;
+}
+.container form div button:hover {
+  cursor: pointer;
+  background-color: transparent;
+  color: #4e30f5;
+}
+.container form div button:last-child {
+  margin-top: 2vmin;
+}
+.container form div:last-child {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 0 3vmin;
+}
+.container form div:last-child button {
+  margin: 0;
+  margin-top: 3vmin;
+}
+.container form div:last-child button:last-child {
+  margin-left: 3vmin;
+  width: 70%;
+}
+.container .searchWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  border-top: 1px solid #4e30f5;
+  padding: 0 1vmin;
+  padding-top: 10vmin;
+  margin-top: 5vmin;
+}
+.container .searchWrapper h3 {
+  width: 80%;
+  text-align: center;
+  color: #4e30f5;
+}
+.container .searchWrapper .search {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding: 0 2vmin;
+}
+.container .searchWrapper .search input {
+  height: 5vmin;
+  width: 100%;
+  border: 1px solid #4e30f5;
+  border-right: none;
+  border-radius: 10px 0 0 10px;
+  padding-left: 1vmin;
+}
+.container .searchWrapper .search button {
+  height: 5vmin;
+  width: 8vmin;
+  border: 1px solid #4e30f5;
+  background-color: transparent;
+  border-radius: 0 10px 10px 0;
+  transition: all 0.6s;
+  color: #4e30f5;
+}
+.container .searchWrapper .search button:hover {
+  background-color: #4e30f5;
+  color: white;
+  cursor: pointer;
+}
+.container .searchWrapper .search button svg {
+  width: 15px;
+  color: inherit;
+}
+.container .idWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 5vmin 0;
+}
+.container .idWrapper p {
+  color: #4e30f5;
+  margin-bottom: 1vmin;
+}
+.container .idWrapper button {
+  background-color: #4e30f5;
+  color: white;
+  border: 1px solid #4e30f5;
+  width: 50%;
+  padding: 1vmin 0;
+  border-radius: 5px;
+  transition: all 0.6s;
+}
+.container .idWrapper button:hover {
+  background-color: transparent;
+  color: #4e30f5;
+  cursor: pointer;
+}
+.container .contacts {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0 1vmin;
+  justify-content: flex-start;
+  margin-top: 5vmin;
+}
+.container .contacts h1 {
+  color: #4e30f5;
+  width: 100%;
+  text-align: center;
+}
+.container .contacts .searchedUser,
+.container .contacts .classmate {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 90%;
+  margin: 1vmin 0;
+  justify-content: space-between;
+  padding: 1.5vmin 3vmin;
+  border: 1px solid #4e30f5;
+  border-radius: 5px;
+}
+.container .contacts .searchedUser p,
+.container .contacts .classmate p {
+  color: #4e30f5;
+}
+.container .contacts .searchedUser button,
+.container .contacts .classmate button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: auto;
+  padding: 1.5vmin 3vmin;
+  background-color: transparent;
+  border: none;
+  transition: all 0.6s;
+  border-radius: 5px;
+}
+.container .contacts .searchedUser button:hover,
+.container .contacts .classmate button:hover {
+  background-color: rgba(78, 48, 245, 0.1);
+  cursor: pointer;
+}
+.container .contacts .searchedUser button svg,
+.container .contacts .classmate button svg {
+  width: 15px;
+  color: #4e30f5;
+}/*# sourceMappingURL=style.module.css.map */
