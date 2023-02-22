@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import { useRouter } from "next/router";
 import ProtectedRoute from "../components/auth/ProtectedRoute";
 import Head from "next/head";
+import ErrorBoundary from "./errorboundary";
 
 const noAuthRequired = ["/login", "/signup", "/"];
 
@@ -13,10 +14,14 @@ function MyApp({ Component, pageProps }) {
     <AuthContextProvider>
       <Head></Head>
       {noAuthRequired.includes(router.pathname) ? (
-        <Component {...pageProps} />
+        <ErrorBoundary>
+          <Component {...pageProps} />
+        </ErrorBoundary>
       ) : (
         <ProtectedRoute>
-          <Component {...pageProps} />
+          <ErrorBoundary>
+            <Component {...pageProps} />
+          </ErrorBoundary>
         </ProtectedRoute>
       )}
     </AuthContextProvider>

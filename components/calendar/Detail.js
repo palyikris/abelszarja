@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import LoaderPage from "./../../ui/Loader";
 import styles from "../../styles/calendardetail/style.module.css";
-import CalendarSavingPage from "./DetailSavingCalendar";
 import { getSubjects } from "../../lib/subjects/firebase";
 
 export default function DetailComponent(props) {
@@ -477,14 +476,12 @@ export default function DetailComponent(props) {
                 </>
               )}
             </div>
-            {isClassAdder ? <></> : <CalendarSavingPage></CalendarSavingPage>}
           </>
         ) : (
           <>
             <h3 style={{ marginTop: "20vmin", textAlign: "center" }}>
               Válassz tantárgyat, vagy egy helyet neki!
             </h3>
-            <CalendarSavingPage></CalendarSavingPage>
           </>
         )}
       </div>

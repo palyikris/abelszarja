@@ -132,8 +132,6 @@ export default function InboxSenderPage() {
     );
   }
 
-  console.log(searchedUser);
-
   if (classMates.length === 0) {
     return (
       <div className={styles.container}>
@@ -201,7 +199,10 @@ export default function InboxSenderPage() {
           )}
         </div>
         <div className={styles.contacts}>
-          {searchedUser ? (
+          {searchedUser != undefined &&
+          searchedUser != "" &&
+          typeof searchedUser === "object" &&
+          searchedUser !== null ? (
             <>
               <div className={styles.searchedUser}>
                 {searchedUser.nickname ? (
@@ -304,7 +305,10 @@ export default function InboxSenderPage() {
         )}
       </div>
       <div className={styles.contacts}>
-        {searchedUser ? (
+        {searchedUser != undefined &&
+        searchedUser != "" &&
+        typeof searchedUser === "object" &&
+        searchedUser !== null ? (
           <>
             <div className={styles.searchedUser}>
               {searchedUser.nickname ? (

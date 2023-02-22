@@ -26,7 +26,6 @@ export default function InboxContentPage(props) {
     });
     response = await response.json();
     setInbox(response.message);
-    console.log(inbox);
     setIsLoading(false);
   }
 
@@ -46,7 +45,6 @@ export default function InboxContentPage(props) {
     return data;
   }
 
-  console.log("rendered");
   useEffect(() => {
     fetchInbox().then((data) => {
       setInbox(data);
@@ -110,7 +108,12 @@ export default function InboxContentPage(props) {
                 );
                 try {
                   deleteDoc(dbInstance).then(() => {
-                    router.reload();
+                    try {
+                      setIsMailDisplay(false);
+                      refreshMails();
+                    } catch (error) {
+                      console.error(error);
+                    }
                   });
                 } catch (error) {
                   console.error(error);
