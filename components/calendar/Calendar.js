@@ -320,7 +320,7 @@ export default function CalendarPage(props) {
                                 <button
                                   id={`${i}_${j}`}
                                   onClick={(e) => {
-                                    setIdToDetermineSubject(e.target.id);
+                                    setIdToDetermineSubject(`${i}_${j}`);
                                   }}
                                 >
                                   <span> {subject.name}</span>
@@ -333,7 +333,7 @@ export default function CalendarPage(props) {
                                 <button
                                   id={`${i}_${j}`}
                                   onClick={(e) => {
-                                    setIdToDetermineSubject(e.target.id);
+                                    setIdToDetermineSubject(`${i}_${j}`);
                                   }}
                                 ></button>
                               </div>
@@ -358,7 +358,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     >
                                       <span> {subject.name}</span>
@@ -371,7 +371,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     ></button>
                                   </div>
@@ -391,7 +391,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     >
                                       <span> {subject.name}</span>
@@ -404,7 +404,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     ></button>
                                   </div>
@@ -425,7 +425,7 @@ export default function CalendarPage(props) {
                                   <button
                                     id={`${i}_${j}`}
                                     onClick={(e) => {
-                                      setIdToDetermineSubject(e.target.id);
+                                      setIdToDetermineSubject(`${i}_${j}`);
                                     }}
                                   >
                                     <span> {subject.name}</span>
@@ -438,7 +438,7 @@ export default function CalendarPage(props) {
                                   <button
                                     id={`${i}_${j}`}
                                     onClick={(e) => {
-                                      setIdToDetermineSubject(e.target.id);
+                                      setIdToDetermineSubject(`${i}_${j}`);
                                     }}
                                   ></button>
                                 </div>
@@ -460,7 +460,7 @@ export default function CalendarPage(props) {
                               <button
                                 id={`${i}_${j}`}
                                 onClick={(e) => {
-                                  setIdToDetermineSubject(e.target.id);
+                                  setIdToDetermineSubject(`${i}_${j}`);
                                 }}
                               >
                                 <span> {subject.name}</span>
@@ -473,7 +473,7 @@ export default function CalendarPage(props) {
                               <button
                                 id={`${i}_${j}`}
                                 onClick={(e) => {
-                                  setIdToDetermineSubject(e.target.id);
+                                  setIdToDetermineSubject(`${i}_${j}`);
                                 }}
                               ></button>
                             </div>
@@ -499,7 +499,7 @@ export default function CalendarPage(props) {
                                 <button
                                   id={`${i}_${j}`}
                                   onClick={(e) => {
-                                    setIdToDetermineSubject(e.target.id);
+                                    setIdToDetermineSubject(`${i}_${j}`);
                                   }}
                                 >
                                   <span> {subject.name}</span>
@@ -537,7 +537,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     >
                                       <span> {subject.name}</span>
@@ -550,7 +550,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     ></button>
                                   </div>
@@ -567,7 +567,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     >
                                       <span> {subject.name}</span>
@@ -580,7 +580,7 @@ export default function CalendarPage(props) {
                                     <button
                                       id={`${i}_${j}`}
                                       onClick={(e) => {
-                                        setIdToDetermineSubject(e.target.id);
+                                        setIdToDetermineSubject(`${i}_${j}`);
                                       }}
                                     ></button>
                                   </div>
@@ -598,7 +598,7 @@ export default function CalendarPage(props) {
                                   <button
                                     id={`${i}_${j}`}
                                     onClick={(e) => {
-                                      setIdToDetermineSubject(e.target.id);
+                                      setIdToDetermineSubject(`${i}_${j}`);
                                     }}
                                   >
                                     <span> {subject.name}</span>
@@ -611,7 +611,7 @@ export default function CalendarPage(props) {
                                   <button
                                     id={`${i}_${j}`}
                                     onClick={(e) => {
-                                      setIdToDetermineSubject(e.target.id);
+                                      setIdToDetermineSubject(`${i}_${j}`);
                                     }}
                                   ></button>
                                 </div>
@@ -630,7 +630,7 @@ export default function CalendarPage(props) {
                               <button
                                 id={`${i}_${j}`}
                                 onClick={(e) => {
-                                  setIdToDetermineSubject(e.target.id);
+                                  setIdToDetermineSubject(`${i}_${j}`);
                                 }}
                               >
                                 <span> {subject.name}</span>
@@ -643,7 +643,7 @@ export default function CalendarPage(props) {
                               <button
                                 id={`${i}_${j}`}
                                 onClick={(e) => {
-                                  setIdToDetermineSubject(e.target.id);
+                                  setIdToDetermineSubject(`${i}_${j}`);
                                 }}
                               ></button>
                             </div>
