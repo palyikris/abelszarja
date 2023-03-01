@@ -41,7 +41,7 @@ export default function InboxSenderPage() {
     try {
       let date = new Date();
       let dateCreated = `${date.getFullYear()}.${AddZero(
-        date.getMonth()
+        date.getMonth() + 1
       )}.${AddZero(date.getDate())} ${AddZero(date.getHours())}:${AddZero(
         date.getMinutes()
       )}:${AddZero(date.getSeconds())}`;

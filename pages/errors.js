@@ -6,7 +6,6 @@ import CustomHead from "./../ui/CustomHead";
 
 export default function ErrorsPage() {
   let { user } = useAuth();
-  console.log(user);
   return (
     <>
       <CustomHead

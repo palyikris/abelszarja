@@ -2,6 +2,7 @@ import styles from "../../styles/errorpage/style.module.css";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import LoaderPage from "./../../ui/Loader";
+import { AddZero } from "./../../lib/AddZero";
 
 export default function ErrorPage() {
   let [name, setName] = useState("");
@@ -15,7 +16,11 @@ export default function ErrorPage() {
     setIsErrorSent(true);
     setIsLoading(true);
     let date = new Date();
-    let dateCreated = `${date.getFullYear()}.${date.getMonth()}.${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+    let dateCreated = `${date.getFullYear()}.${AddZero(
+      date.getMonth() + 1
+    )}.${AddZero(date.getDate())} ${AddZero(date.getHours())}:${AddZero(
+      date.getMinutes()
+    )}:${AddZero(date.getSeconds())}`;
     e.preventDefault();
     let response = await fetch("/api/error/errorhandling", {
       method: "POST",
@@ -45,8 +50,6 @@ export default function ErrorPage() {
     otherResponse = await otherResponse.json();
     setIsLoading(false);
   }
-
-  console.log(isLoading, isErrorSent);
 
   if (isLoading) {
     return (

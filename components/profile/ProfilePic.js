@@ -23,7 +23,6 @@ export default function ProfilePicPage() {
     if (file != undefined) {
       setIsLoading(true);
       try {
-        console.log(file);
         getProfilePicName(router.query.userId).then((data) => {
           if (data) {
             let desertRef = ref(storage, `${router.query.userId}/${data}`);

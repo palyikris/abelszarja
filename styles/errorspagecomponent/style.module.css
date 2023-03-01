@@ -19,20 +19,65 @@
   flex-direction: column;
   background-color: white;
   justify-content: flex-start;
-  width: 60%;
+  width: 80%;
   padding: 0vmin 0 10vmin 0;
   height: 60vmin;
   overflow-y: scroll;
   border-radius: 10px;
+  border: 1px solid white;
 }
-.container .errorsWrapper h1 {
+.container .errorsWrapper .errorControlPanel {
+  border-bottom: 1px solid #4e30f5;
+  margin-bottom: 10vmin;
+  padding: 5vmin;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.container .errorsWrapper .errorControlPanel h1 {
   color: #4e30f5;
   font-size: 40px;
   width: 100%;
   text-align: center;
-  border-bottom: 1px solid #4e30f5;
-  padding: 5vmin 0;
-  margin-bottom: 10vmin;
+}
+.container .errorsWrapper .errorControlPanel button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  width: 40%;
+  margin: 0 2vmin;
+  padding: 1vmin;
+  background-color: #4e30f5;
+  border: 1px solid #4e30f5;
+  color: white;
+  border-radius: 5px;
+  transition: all 0.6s;
+}
+.container .errorsWrapper .errorControlPanel button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: #4e30f5;
+}
+.container .errorsWrapper .errorControlPanel button svg {
+  width: 20px;
+  color: inherit;
+}
+.container .errorsWrapper .errorControlPanel div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 50%;
+  justify-content: flex-start;
+}
+.container .errorsWrapper .errorControlPanel div button {
+  width: auto;
 }
 .container .errorsWrapper .error {
   width: 100%;
@@ -40,7 +85,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 60%;
+  width: 80%;
   margin: 5vmin 0;
   background-color: #4e30f5;
   padding: 3vmin;
