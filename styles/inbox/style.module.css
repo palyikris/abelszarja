@@ -11,4 +11,10 @@
 .container ::-webkit-scrollbar,
 .container ::-webkit-scrollbar-track {
   display: none;
+}
+
+@media only screen and (max-width: 620px) {
+  .container {
+    flex-direction: column;
+  }
 }/*# sourceMappingURL=style.module.css.map */

@@ -226,4 +226,11 @@
 .container .contacts .classmate button svg {
   width: 15px;
   color: #4e30f5;
+}
+
+@media only screen and (max-width: 620px) {
+  .container {
+    margin-left: 0;
+    margin-top: 10vmin;
+  }
 }/*# sourceMappingURL=style.module.css.map */

@@ -81,3 +81,47 @@
     }
   }
 }
+
+
+@media only screen and (max-width: 790px) {
+  .container{
+    form{
+      width: 80%;
+      textarea{
+        width: 90%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .container{
+    form{
+      h1{
+        font-size: 45px;
+      }
+      h4{
+        font-size: 15px;
+        margin-top: 10vmin;
+      }
+      .data{
+        margin: 2vmin 0;
+        label{
+          margin-bottom: 1vmin;
+        }
+      }
+      .dataTextArea{
+        h2{
+          font-size: 35px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 430px) {
+  .container{
+    height: 80vh;
+    max-height: 80vh;
+  }
+}
