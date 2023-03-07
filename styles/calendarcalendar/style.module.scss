@@ -225,6 +225,22 @@
     .calendar {
       margin-top: 20vmin;
       width: 90%;
+      .tr{
+        .tdFull{
+          &:not(:nth-child(1)){
+            button{
+              height: 60%;
+              margin: 1vmin;
+            }
+          }
+        }
+      }
     }
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .container{
+    display: none;
   }
 }

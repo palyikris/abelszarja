@@ -8,4 +8,15 @@
   position: absolute;
   background-color: transparent;
   justify-content: flex-start;
+}
+.container h1 {
+  color: white;
+  display: none;
+}
+
+@media only screen and (max-width: 650px) {
+  .container h1 {
+    display: inline-block;
+    padding: 1vmin 3vmin;
+  }
 }/*# sourceMappingURL=style.module.css.map */

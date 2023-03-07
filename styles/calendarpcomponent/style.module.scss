@@ -5,3 +5,9 @@
   height: 100vh;
   justify-content: space-around;
 }
+
+@media only screen and (max-width: 650px) {
+  .container{
+    display: none;
+  }
+}

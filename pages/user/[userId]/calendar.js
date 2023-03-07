@@ -25,7 +25,7 @@ export default function CalendarPage(props) {
 
   let router = useRouter();
 
-  if (isLoading) {
+  if (isLoading || router.isFallback) {
     return <LoaderPage></LoaderPage>;
   }
 
@@ -37,6 +37,9 @@ export default function CalendarPage(props) {
         keywords="maxt, calendar"
       ></CustomHead>
       <Topnav userId={router.query.userId}></Topnav>
+      <div className={styles.noPhone}>
+        <h1>Sajnáljuk, de a naptár funckió telefonnal nem használható.</h1>
+      </div>
       <CalendarComponent
         todayPageData={props.todayPageData}
         tomorrowPageData={props.tomorrowPageData}
@@ -55,7 +58,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 
@@ -69,7 +72,7 @@ export async function getStaticProps() {
         todayPageData: $(".live.today tbody").text(),
         tomorrowPageData: $(".live.tomorrow tbody").text()
       },
-      revalidate: 3600
+      revalidate: 60
     };
   } catch (error) {
     return {
@@ -78,7 +81,7 @@ export async function getStaticProps() {
         tomorrowPageData: [],
         error: error.message
       },
-      revalidate: 3600
+      revalidate: 60
     };
   }
 }

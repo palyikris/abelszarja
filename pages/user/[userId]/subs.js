@@ -42,7 +42,7 @@ export default function SubsPage(props) {
         keywords="maxt, substitutions"
       ></CustomHead>
       <Topnav userId={router.query.userId}></Topnav>
-      {isLoading ? (
+      {isLoading || router.isFallback ? (
         <>
           <LoaderPage></LoaderPage>
         </>
@@ -65,7 +65,7 @@ export async function getStaticPaths() {
   }));
   return {
     paths,
-    fallback: false
+    fallback: true
   };
 }
 
@@ -85,7 +85,7 @@ export async function getStaticProps() {
         tomorrowPageData: $(".live.tomorrow tbody").text(),
         kossuthData: kossuth(".tartalom:not(:last-child)").text()
       },
-      revalidate: 1200
+      revalidate: 60
     };
   } catch (error) {
     return {
@@ -94,7 +94,7 @@ export async function getStaticProps() {
         tomorrowPageData: [],
         error: error.message
       },
-      revalidate: 1200
+      revalidate: 60
     };
   }
 }
