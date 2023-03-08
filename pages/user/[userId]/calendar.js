@@ -4,16 +4,55 @@ import { useRouter } from "next/router";
 import CalendarComponent from "../../../components/calendar/CalendarComponent";
 import styles from "../../../styles/calendar/style.module.css";
 import AnimatedBackgroundPage from "./../../../ui/animatedBackground";
-import { getAllUserId } from "../../../lib/userData/firebase";
+import { getAllUserId, getUserData } from "../../../lib/userData/firebase";
 import axios from "axios";
 import cheerio from "cheerio";
 import LoaderPage from "./../../../ui/Loader";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../../context/AuthContext";
+import { AddZero } from "../../../lib/AddZero";
 
 export default function CalendarPage(props) {
   let [isLoading, setIsLoading] = useState(true);
   let { logout, user } = useAuth();
+  let router = useRouter();
+
+
+  async function handlePageRevalidation(){
+    try {
+      let userData = await getUserData(router.query.userId);
+      let date  = new Date()
+        let formattedDate = `${date.getFullYear()}.${AddZero(date.getMonth() + 1)}.${AddZero(date.getDate())}`
+      if(userData.calendarLastRevalidated){
+        if(userData.calendarLastRevalidated != formattedDate){
+          let response = await fetch("/api/revalidate", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              userId: router.query.userId,
+              path: `/user/${router.query.userId}/calendar`
+            })
+          })
+        }
+      }
+      else{
+        let response = await fetch("/api/revalidate", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            userId: router.query.userId,
+            path: `/user/${router.query.userId}/calendar`
+          })
+        })
+      }
+    } catch (error) {
+      console.error(error) 
+    }
+  }
 
   useEffect(() => {
     if (user.id != router.query.userId) {
@@ -21,9 +60,9 @@ export default function CalendarPage(props) {
     } else {
       setIsLoading(false);
     }
+    handlePageRevalidation()
   }, []);
 
-  let router = useRouter();
 
   if (isLoading || router.isFallback) {
     return <LoaderPage></LoaderPage>;

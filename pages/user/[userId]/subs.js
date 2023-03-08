@@ -11,13 +11,14 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useAuth } from "./../../../context/AuthContext";
 import LoaderPage from "./../../../ui/Loader";
-import { getAllUserId } from "../../../lib/userData/firebase";
+import { getAllUserData, getAllUserId, getUserData } from "../../../lib/userData/firebase";
 import { getSubLines } from "./../../../lib/subs/GetSubLines";
 import { collection } from "firebase/firestore";
 import { db } from "./../../../firebaseConfig";
 import { setDoc } from "firebase/firestore";
 import { doc } from "firebase/firestore";
 import { useSubsContext } from "../../../context/SubsContext";
+import {AddZero} from "../../../lib/AddZero"
 
 export default function SubsPage(props) {
   let router = useRouter();
@@ -26,13 +27,51 @@ export default function SubsPage(props) {
   let date = new Date();
   date.getDate() + 1;
 
+  async function handlePageRevalidation(){
+    try {
+      let userData = await getUserData(router.query.userId);
+      let date  = new Date()
+        let formattedDate = `${date.getFullYear()}.${AddZero(date.getMonth() + 1)}.${AddZero(date.getDate())}`
+      if(userData.subsLastRevalidated){
+        if(userData.subsLastRevalidated != formattedDate){
+          let response = await fetch("/api/revalidate", {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+              userId: router.query.userId,
+              path: `/user/${router.query.userId}/subs`
+            })
+          })
+        }
+      }
+      else{
+        let response = await fetch("/api/revalidate", {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            userId: router.query.userId,
+            path: `/user/${router.query.userId}/subs`
+          })
+        })
+      }
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   useEffect(() => {
     if (user.id != router.query.userId) {
       logout();
     } else {
       setIsLoading(false);
     }
-  });
+
+    handlePageRevalidation()
+  }, []);
 
   return (
     <div className={styles.container}>
@@ -84,8 +123,7 @@ export async function getStaticProps() {
         todayPageData: $(".live.today tbody").text(),
         tomorrowPageData: $(".live.tomorrow tbody").text(),
         kossuthData: kossuth(".tartalom:not(:last-child)").text()
-      },
-      revalidate: 60
+      }
     };
   } catch (error) {
     return {
@@ -94,7 +132,6 @@ export async function getStaticProps() {
         tomorrowPageData: [],
         error: error.message
       },
-      revalidate: 60
     };
   }
 }
