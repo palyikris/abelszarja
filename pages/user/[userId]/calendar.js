@@ -17,14 +17,15 @@ export default function CalendarPage(props) {
   let { logout, user } = useAuth();
   let router = useRouter();
 
-
-  async function handlePageRevalidation(){
+  async function handlePageRevalidation() {
     try {
       let userData = await getUserData(router.query.userId);
-      let date  = new Date()
-        let formattedDate = `${date.getFullYear()}.${AddZero(date.getMonth() + 1)}.${AddZero(date.getDate())}`
-      if(userData.calendarLastRevalidated){
-        if(userData.calendarLastRevalidated != formattedDate){
+      let date = new Date();
+      let formattedDate = `${date.getFullYear()}.${AddZero(
+        date.getMonth() + 1
+      )}.${AddZero(date.getDate())}`;
+      if (userData.calendarLastRevalidated) {
+        if (userData.calendarLastRevalidated != formattedDate) {
           let response = await fetch("/api/revalidate", {
             method: "PATCH",
             headers: {
@@ -34,10 +35,9 @@ export default function CalendarPage(props) {
               userId: router.query.userId,
               path: `/user/${router.query.userId}/calendar`
             })
-          })
+          });
         }
-      }
-      else{
+      } else {
         let response = await fetch("/api/revalidate", {
           method: "PATCH",
           headers: {
@@ -47,10 +47,10 @@ export default function CalendarPage(props) {
             userId: router.query.userId,
             path: `/user/${router.query.userId}/calendar`
           })
-        })
+        });
       }
     } catch (error) {
-      console.error(error) 
+      console.error(error);
     }
   }
 
@@ -60,12 +60,11 @@ export default function CalendarPage(props) {
     } else {
       setIsLoading(false);
     }
-    handlePageRevalidation()
+    handlePageRevalidation();
   }, []);
 
-
   if (isLoading || router.isFallback) {
-    return <LoaderPage></LoaderPage>;
+    return <LoaderPage />;
   }
 
   return (
@@ -74,23 +73,23 @@ export default function CalendarPage(props) {
         title="Maxt Naptár"
         description="Maxt Calendar Page."
         keywords="maxt, calendar"
-      ></CustomHead>
-      <Topnav userId={router.query.userId}></Topnav>
+      />
+      <Topnav userId={router.query.userId} />
       <div className={styles.noPhone}>
         <h1>Sajnáljuk, de a naptár funckió telefonnal nem használható.</h1>
       </div>
       <CalendarComponent
         todayPageData={props.todayPageData}
         tomorrowPageData={props.tomorrowPageData}
-      ></CalendarComponent>
-      <AnimatedBackgroundPage></AnimatedBackgroundPage>
+      />
+      <AnimatedBackgroundPage />
     </div>
   );
 }
 
 export async function getStaticPaths() {
   let response = await getAllUserId();
-  let paths = response.map((path) => ({
+  let paths = response.map(path => ({
     params: {
       userId: path.id
     }
@@ -111,7 +110,7 @@ export async function getStaticProps() {
         todayPageData: $(".live.today tbody").text(),
         tomorrowPageData: $(".live.tomorrow tbody").text()
       },
-      revalidate: 60
+      revalidate: 1
     };
   } catch (error) {
     return {
@@ -120,7 +119,7 @@ export async function getStaticProps() {
         tomorrowPageData: [],
         error: error.message
       },
-      revalidate: 60
+      revalidate: 3
     };
   }
 }

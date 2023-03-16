@@ -113,17 +113,12 @@ export async function getStaticProps() {
     const { data } = await axios.get("https://apps.karinthy.hu/helyettesites/");
     const $ = cheerio.load(data);
 
-    const kossuthData = await (
-      await axios.get("http://fenyujsag.klgbp.hu")
-    ).data;
-    const kossuth = cheerio.load(kossuthData);
-
     return {
       props: {
         todayPageData: $(".live.today tbody").text(),
-        tomorrowPageData: $(".live.tomorrow tbody").text(),
-        kossuthData: kossuth(".tartalom:not(:last-child)").text()
-      }
+        tomorrowPageData: $(".live.tomorrow tbody").text()
+      },
+      revalidate: 3
     };
   } catch (error) {
     return {
@@ -132,6 +127,7 @@ export async function getStaticProps() {
         tomorrowPageData: [],
         error: error.message
       },
+      revalidate: 1
     };
   }
 }
