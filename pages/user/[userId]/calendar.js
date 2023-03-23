@@ -14,56 +14,34 @@ import { AddZero } from "../../../lib/AddZero";
 
 export default function CalendarPage(props) {
   let [isLoading, setIsLoading] = useState(true);
+  let [subs, setSubs] = useState();
   let { logout, user } = useAuth();
   let router = useRouter();
 
-  async function handlePageRevalidation() {
-    try {
-      let userData = await getUserData(router.query.userId);
-      let date = new Date();
-      let formattedDate = `${date.getFullYear()}.${AddZero(
-        date.getMonth() + 1
-      )}.${AddZero(date.getDate())}`;
-      if (userData.calendarLastRevalidated) {
-        if (userData.calendarLastRevalidated != formattedDate) {
-          let response = await fetch("/api/revalidate", {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-              userId: router.query.userId,
-              path: `/user/${router.query.userId}/calendar`
-            })
-          });
-        }
-      } else {
-        let response = await fetch("/api/revalidate", {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
-            userId: router.query.userId,
-            path: `/user/${router.query.userId}/calendar`
-          })
-        });
+  async function revalidatePage() {
+    let response = await fetch("/api/revalidate", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json"
       }
-    } catch (error) {
-      console.error(error);
-    }
+    });
+
+    response = await response.json();
+    return response;
   }
 
   useEffect(() => {
     if (user.id != router.query.userId) {
       logout();
     } else {
-      setIsLoading(false);
+      revalidatePage().then(data => {
+        setSubs(data);
+        setIsLoading(false);
+      });
     }
-    handlePageRevalidation();
   }, []);
 
-  if (isLoading || router.isFallback) {
+  if (isLoading || router.isFallback || subs === undefined) {
     return <LoaderPage />;
   }
 
@@ -79,47 +57,10 @@ export default function CalendarPage(props) {
         <h1>Sajnáljuk, de a naptár funckió telefonnal nem használható.</h1>
       </div>
       <CalendarComponent
-        todayPageData={props.todayPageData}
-        tomorrowPageData={props.tomorrowPageData}
+        todayPageData={subs.todayPageData}
+        tomorrowPageData={subs.tomorrowPageData}
       />
       <AnimatedBackgroundPage />
     </div>
   );
-}
-
-export async function getStaticPaths() {
-  let response = await getAllUserId();
-  let paths = response.map(path => ({
-    params: {
-      userId: path.id
-    }
-  }));
-  return {
-    paths,
-    fallback: true
-  };
-}
-
-export async function getStaticProps() {
-  try {
-    const { data } = await axios.get("https://apps.karinthy.hu/helyettesites/");
-    const $ = cheerio.load(data);
-
-    return {
-      props: {
-        todayPageData: $(".live.today tbody").text(),
-        tomorrowPageData: $(".live.tomorrow tbody").text()
-      },
-      revalidate: 1
-    };
-  } catch (error) {
-    return {
-      props: {
-        todayPageData: [],
-        tomorrowPageData: [],
-        error: error.message
-      },
-      revalidate: 3
-    };
-  }
 }
