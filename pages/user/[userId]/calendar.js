@@ -42,7 +42,16 @@ export default function CalendarPage(props) {
   }, []);
 
   if (isLoading || router.isFallback || subs === undefined) {
-    return <LoaderPage />;
+    return (
+      <>
+        <CustomHead
+          title="Maxt Naptár"
+          description="Maxt Calendar Page."
+          keywords="maxt, calendar"
+        />
+        <Topnav userId={router.query.userId} />
+        <LoaderPage />
+      </>);
   }
 
   return (
