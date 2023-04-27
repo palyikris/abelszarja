@@ -33,8 +33,17 @@ export default function UserClasses() {
   useEffect(() => {
     getUserSubjects().then(data => {
       let date = new Date();
+      let hour = date.getHours();
       let dayNumber = date.getDay();
-      setSubjects(userClasses(data[dayNumber]));
+      let todaySubjects = userClasses(data[dayNumber]);
+      let lastSubjectStart = parseInt(
+        todaySubjects[todaySubjects.length - 1].timeStart.split(":")[0]
+      );
+      if (hour < lastSubjectStart) {
+        todaySubjects = userClasses(data[dayNumber + 1]);
+      }
+
+      setSubjects(todaySubjects);
       setIsLoading(false);
     });
   }, []);
