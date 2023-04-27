@@ -18,8 +18,7 @@
   width: 8vmin;
   height: 8vmin;
   border-radius: 8vmin;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
+  backface-visibility: hidden;
   position: absolute;
   animation: move;
   animation-duration: 29;

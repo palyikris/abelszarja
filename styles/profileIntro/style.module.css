@@ -8,6 +8,7 @@
   background-color: transparent;
   padding: 0 10vmin;
   margin-top: 10vmin;
+  align-items: flex-start;
 }
 .intro .text {
   width: 100%;
@@ -16,6 +17,7 @@
   align-items: center;
   flex-direction: column;
   align-items: flex-start;
+  margin-top: 5vmin;
 }
 .intro .text h1 {
   font-size: 180px;

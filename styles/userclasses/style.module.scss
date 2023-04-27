@@ -1,0 +1,31 @@
+@import "../uniform";
+
+.container {
+    @include centerDiv(row);
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 10vmin 0 5vmin 0;
+
+    .subject {
+        background-color: transparent;
+        color: white;
+        padding: 2vmin 3vmin;
+        margin: 1.5vmin;
+        border-radius: 5px;
+        @include centerDiv(column);
+        width: 40%;
+        flex-grow: 1;
+        border: 2px solid white;
+
+        p {
+            color: inherit;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .currSubject {
+        background-color: white;
+        color: $backgroundColor;
+    }
+}

@@ -6,14 +6,19 @@
   background-color: transparent;
   padding: 0 10vmin;
   margin-top: 10vmin;
+  align-items: flex-start;
+
   .text {
     @include centerDiv(column);
     align-items: flex-start;
+    margin-top: 5vmin;
+
     h1 {
       font-size: 180px;
       color: white;
       font-weight: bold;
     }
+
     h4 {
       font-size: 20px;
       color: white;
@@ -21,6 +26,7 @@
       font-style: italic;
     }
   }
+
   .svgWrapper {
     @include centerDiv(row);
     flex-shrink: 0;
@@ -39,10 +45,12 @@
     background-image: var(--img-url),
       linear-gradient(to bottom left, #f83600, #f9d423);
     transition: all 0.5s;
+
     svg {
       width: 40%;
       color: white;
     }
+
     &:hover {
       box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
     }
@@ -52,17 +60,21 @@
 @media only screen and (max-width: 810px) {
   .intro {
     @include centerDiv(column);
+
     .text {
       @include centerDiv(column);
+
       h1,
       h4 {
         text-align: center;
       }
     }
+
     .svgWrapper {
       margin: 20vmin 2vmin;
       margin-bottom: 8vmin;
       padding: 30vmin 20vmin;
+
       svg {
         width: 80%;
       }
@@ -76,6 +88,7 @@
       h1 {
         font-size: 150px;
       }
+
       h4 {
         font-size: 20px;
         padding: 5vmin 0;
@@ -90,6 +103,7 @@
       h1 {
         font-size: 120px;
       }
+
       h4 {
         font-size: 15px;
         padding: 5vmin 0;

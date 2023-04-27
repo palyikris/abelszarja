@@ -4,7 +4,8 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 75vh;
+  height: auto;
+  max-height: 85vh;
   position: absolute;
   z-index: 10;
   margin-top: 15vh;
