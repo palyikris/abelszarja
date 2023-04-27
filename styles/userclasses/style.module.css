@@ -40,6 +40,10 @@
   }
   .container .subject {
     width: 100%;
+    height: 30vmin;
+  }
+  .container .subject p {
+    padding: 0.5vmin 0;
   }
 }
 @media only screen and (max-width: 360px) {
