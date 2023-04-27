@@ -82,6 +82,18 @@
   }
 }
 
+@media only screen and (max-width: 560px) {
+  .intro {
+    .text {
+      h4 {
+        margin-top: 10vmin;
+        margin-bottom: 5vmin;
+      }
+    }
+  }
+}
+
+
 @media only screen and (max-width: 475px) {
   .intro {
     .text {
