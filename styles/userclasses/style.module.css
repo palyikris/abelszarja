@@ -1,3 +1,40 @@
+.noClassContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  padding-top: 20vmin;
+  justify-content: flex-start;
+  color: white;
+  font-size: 22px;
+}
+.noClassContainer h3 {
+  width: 100%;
+  text-align: left;
+  padding-bottom: 5vmin;
+}
+.noClassContainer h1 {
+  text-align: center;
+  width: 100%;
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper h3 {
+  padding-bottom: 5vmin;
+  font-size: 30px;
+  width: 100%;
+  text-align: left;
+  color: white;
+}
+
 .container {
   width: 100%;
   display: flex;
@@ -6,7 +43,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   width: 70%;
-  margin: 10vmin 0 5vmin 0;
+  margin: 0vmin 0 5vmin 0;
 }
 .container .subject {
   background-color: transparent;
@@ -33,7 +70,15 @@
   color: #4e30f5;
 }
 
+@media only screen and (max-width: 935px) {
+  .wrapper {
+    padding-top: 15vmin;
+  }
+}
 @media only screen and (max-width: 560px) {
+  .wrapper h3 {
+    text-align: center;
+  }
   .container {
     flex-direction: column;
     width: 90%;

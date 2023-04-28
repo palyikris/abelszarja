@@ -60,7 +60,7 @@
   box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.5);
 }
 
-@media only screen and (max-width: 810px) {
+@media only screen and (max-width: 935px) {
   .intro {
     width: 100%;
     display: flex;

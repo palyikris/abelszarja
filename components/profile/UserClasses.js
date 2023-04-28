@@ -8,6 +8,17 @@ export default function UserClasses() {
   let [subjects, setSubjects] = useState([]);
   let [isLoading, setIsLoading] = useState(true);
   let router = useRouter();
+  let days = [
+    "Vasárnap",
+    "Hétfő",
+    "Kedd",
+    "Szerda",
+    "Csütörtök",
+    "Péntek",
+    "Szombat"
+  ];
+  let date = new Date();
+  let dayNumber = date.getDay();
 
   async function getUserSubjects() {
     try {
@@ -35,11 +46,12 @@ export default function UserClasses() {
       let date = new Date();
       let hour = date.getHours();
       let dayNumber = date.getDay();
+      dayNumber = dayNumber;
       let todaySubjects = userClasses(data[dayNumber]);
       let lastSubjectStart = parseInt(
         todaySubjects[todaySubjects.length - 1].timeStart.split(":")[0]
       );
-      if (hour < lastSubjectStart) {
+      if (hour > lastSubjectStart) {
         todaySubjects = userClasses(data[dayNumber + 1]);
       }
 
@@ -52,16 +64,49 @@ export default function UserClasses() {
     return <LoaderPage />;
   }
 
-  return (
-    <div className={styles.container}>
-      {subjects.map((subject, i) => {
-        let date = new Date();
-        let hour = date.getHours();
-        let timeStart = parseInt(subject.timeStart.split()[0]);
+  if (subjects.length === 0) {
+    return (
+      <div className={styles.noClassContainer}>
+        <h3>
+          Nap: {days[dayNumber]}
+        </h3>
+        <h1>Ma nincsenek órák!</h1>
+      </div>
+    );
+  }
 
-        if (hour === timeStart) {
+  return (
+    <div className={styles.wrapper}>
+      <h3>
+        Nap: {days[dayNumber]}
+      </h3>
+      <div className={styles.container}>
+        {subjects.map((subject, i) => {
+          let date = new Date();
+          let hour = date.getHours();
+          let timeStart = parseInt(subject.timeStart.split()[0]);
+
+          if (hour === timeStart) {
+            return (
+              <div
+                key={i}
+                className={`${styles.subject} ${styles.currSubject}`}
+              >
+                <p>
+                  {subject.name}
+                </p>
+                <p>
+                  {subject.room} {subject.teacher}
+                </p>
+                <p>
+                  {subject.timeStart} - {subject.timeEnd}
+                </p>
+              </div>
+            );
+          }
+
           return (
-            <div key={i} className={`${styles.subject} ${styles.currSubject}`}>
+            <div key={i} className={styles.subject}>
               <p>
                 {subject.name}
               </p>
@@ -73,22 +118,8 @@ export default function UserClasses() {
               </p>
             </div>
           );
-        }
-
-        return (
-          <div key={i} className={styles.subject}>
-            <p>
-              {subject.name}
-            </p>
-            <p>
-              {subject.room} {subject.teacher}
-            </p>
-            <p>
-              {subject.timeStart} - {subject.timeEnd}
-            </p>
-          </div>
-        );
-      })}
+        })}
+      </div>
     </div>
   );
 }

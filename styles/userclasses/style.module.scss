@@ -1,10 +1,44 @@
 @import "../uniform";
 
+
+
+.noClassContainer {
+    @include centerDiv(column);
+    height: 100vh;
+    padding-top: 20vmin;
+    justify-content: flex-start;
+    color: white;
+    font-size: 22px;
+
+    h3 {
+        width: 100%;
+        text-align: left;
+        padding-bottom: 5vmin;
+    }
+
+    h1 {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+.wrapper {
+    @include centerDiv(column);
+
+    h3 {
+        padding-bottom: 5vmin;
+        font-size: 30px;
+        width: 100%;
+        text-align: left;
+        color: white;
+    }
+}
+
 .container {
     @include centerDiv(row);
     flex-wrap: wrap;
     width: 70%;
-    margin: 10vmin 0 5vmin 0;
+    margin: 0vmin 0 5vmin 0;
 
     .subject {
         background-color: transparent;
@@ -30,7 +64,20 @@
     }
 }
 
+@media only screen and (max-width: 935px) {
+    .wrapper {
+        padding-top: 15vmin;
+    }
+}
+
+
 @media only screen and (max-width: 560px) {
+    .wrapper {
+        h3 {
+            text-align: center;
+        }
+    }
+
     .container {
         flex-direction: column;
         width: 90%;
