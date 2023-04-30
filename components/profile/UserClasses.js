@@ -47,12 +47,18 @@ export default function UserClasses() {
       let hour = date.getHours();
       let dayNumber = date.getDay();
       dayNumber = dayNumber;
-      let todaySubjects = userClasses(data[dayNumber]);
-      let lastSubjectStart = parseInt(
-        todaySubjects[todaySubjects.length - 1].timeStart.split(":")[0]
-      );
-      if (hour > lastSubjectStart) {
-        todaySubjects = userClasses(data[dayNumber + 1]);
+      let todaySubjects;
+      if (data[dayNumber].length === 0) {
+        todaySubjects = userClasses(data[dayNumber]);
+      } else {
+        todaySubjects = userClasses(data[dayNumber]);
+        let lastSubjectStart = parseInt(
+          todaySubjects[todaySubjects.length - 1].timeStart.split(":")[0]
+        );
+        if (hour > lastSubjectStart) {
+          dayNumber += 1;
+          todaySubjects = userClasses(data[dayNumber]);
+        }
       }
 
       setSubjects(todaySubjects);
