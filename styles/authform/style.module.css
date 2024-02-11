@@ -70,25 +70,67 @@
   margin-top: 3vmin;
 }
 .container form .dataButton button {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: rgb(255, 255, 255);
+  background: #4e30f5;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
   border-radius: 10px;
-  border: 1px solid white;
-  color: #4e30f5;
-  background: none;
-  border: 2px solid;
-  font: inherit;
-  line-height: 1;
-  margin: 0.5em;
-  background-color: white;
-  transition: 0.5s;
   padding: 2vmin 6vmin;
 }
-.container form .dataButton button:hover {
-  box-shadow: inset 100% 0 0 0 #4e30f5;
-  color: white;
-  cursor: pointer;
+.container form .dataButton button:before {
+  content: "";
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowingbn5 20s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+@keyframes glowingbn5 {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+.container form .dataButton button:active {
+  color: #4e30f5;
+}
+.container form .dataButton button:active:after {
+  background: transparent;
+}
+.container form .dataButton button:hover:before {
+  opacity: 1;
+}
+.container form .dataButton button:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #4e30f5;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
 }
 .container form .dataButton a {
   color: #4e30f5;
+  margin-left: 1rem;
 }
 .container .img {
   background-image: url("../../public/layered-waves-haikei.jpg");
